@@ -1,11 +1,9 @@
 .main__container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
     justify-content: space-around;
-    padding-top: 10%;
+    padding: 5%;
 }
 
 .main__display {
     display: grid;
-    justify-content: unsafe;
 }
