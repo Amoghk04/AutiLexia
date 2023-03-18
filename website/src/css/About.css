@@ -1,0 +1,28 @@
+.main__card {
+    display: flex;
+    border: 5px solid #a8c6e4;
+    background-color: #a8c6e4;
+    border-radius: 20px;
+    padding: 10%;
+}
+
+.main__card-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.main__card-list {
+    list-style-type: none;
+}
+
+.heading-black {
+    color: #2E3440;
+}
+
+.body-light-black {
+    color: #3B4252;
+}
+
+.text-underline {
+    text-decoration: underline;
+}

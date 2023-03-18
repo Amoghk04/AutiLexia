@@ -1,0 +1,11 @@
+.main__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 10%;
+}
+
+.main__display {
+    display: grid;
+    justify-content: unsafe;
+}
