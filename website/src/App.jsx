@@ -1,5 +1,5 @@
 import './App.css'
-import Logo from './assets/brain-logo-design-your-business-260nw-2259541317.png'
+import Logo from './assets/logo.png'
 
 function App() {
   return (

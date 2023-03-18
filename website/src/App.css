@@ -1,23 +1,23 @@
 .card {
-    display: flex;
-    border: 5px solid #a8c6e4;
-    background-color: #a8c6e4;
-    border-radius: 20px;
+  display: flex;
+  border: 5px solid #a8c6e4;
+  background-color: #a8c6e4;
+  border-radius: 20px;
 }
 
 .card__description {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__list {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .heading-black {
-    color: #2E3440;
+  color: #2E3440;
 }
 
 .body-light-black {
-    color: #3B4252;
+  color: #3B4252;
 }
