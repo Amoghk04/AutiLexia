@@ -25,7 +25,8 @@ const Authors = () => {
                     <motion.div className="authors__card" whileInView={{ x: [-100, -95, -90, -85, -80, -75, -70, -65, -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10, -5, 0], opacity: [0, 0.2, 0.4, 0.6, 0.8, 1], }}>
                         <h1 className="heading-black">Amogh Kalasapura</h1>
                         <ul>
-                            <li className="authors__description body-light-black">[Please fill in]</li>
+                            <li className="authors__description body-light-black">Content creator and backend/UI designer for the app 🤡</li>
+                            <li className="authors__description body-light-black">Also the person who gets rickrolled the most 🤪🤪</li>
                         </ul>
                     </motion.div>
 
