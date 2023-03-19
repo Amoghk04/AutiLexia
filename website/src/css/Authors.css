@@ -1,0 +1,29 @@
+.authors__container {
+    padding-top: 40%;
+    text-align: center;
+}
+
+.authors__title {
+    font-size: 250%;
+    color: #789ac4;
+}
+
+.authors__card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.authors__card {
+    display: flex;
+    font-size: 95%;
+    flex-direction: column;
+    border: 5px solid #87aed4;
+    background-color: #87aed4;
+    border-radius: 20px;
+    padding: 3%;
+}
+
+.authors__description {
+    text-align: center;
+    list-style: none;
+}

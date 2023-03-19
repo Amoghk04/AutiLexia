@@ -1,6 +1,5 @@
 .main__container {
     display: grid;
-    justify-content: space-around;
     padding: 5%;
 }
 

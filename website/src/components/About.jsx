@@ -9,7 +9,7 @@ const About = () => {
             <div className="about__container">
                 <h1 className="about__title">Neucare</h1>
                 <p className="about__tagline body-light-black">...one step at a time, you got this!</p>
-                <motion.div className="about__card" whileInView={{ x: [-100, -90, -80, -70, -60, -50, -40, -30, -20, -10, 0] }}>
+                <motion.div className="about__card" whileInView={{ x: [-100, -95, -90, -85, -80, -75, -70, -65, -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10, -5, 0], opacity: [0, 0.2, 0.4, 0.6, 0.8, 1] }}>
                     <img className="" src={Logo} alt="Logo" />
                     <div className="about__card-description">
                         <h1 className="heading-black text-underline">About</h1>

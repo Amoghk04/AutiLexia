@@ -16,6 +16,7 @@
 .about__card {
     display: flex;
     border: 5px solid #87aed4;
+    background-color: #87aed4;
     border-radius: 20px;
     padding: 10%;
 }

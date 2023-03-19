@@ -1,5 +1,6 @@
 import About from "./components/About"
 import Features from "./components/Features"
+import Authors from "./components/Authors"
 import './css/App.css'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <div className="main__container">
         <About />
         <Features />
+        <Authors />
       </div>
     </>
   )
