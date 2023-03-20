@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neucare/components/my_button.dart';
 import 'package:neucare/components/my_textfield.dart';
 import 'package:neucare/components/square_tile.dart';
+import 'package:neucare/pages/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -9,9 +10,6 @@ class LoginPage extends StatelessWidget {
   // text editing controllers
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
-
-  // sign user in method
-  void signUserIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +77,12 @@ class LoginPage extends StatelessWidget {
 
               // sign in button
               MyButton(
-                onTap: signUserIn,
-              ),
+                  onTap: () => {
+                        // TODO: Conditionally do this when the username and password are correct (crosscheck with firebase).
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ))
+                      }),
 
               const SizedBox(height: 50),
 
