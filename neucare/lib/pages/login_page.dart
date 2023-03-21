@@ -80,7 +80,8 @@ class LoginPage extends StatelessWidget {
                   onTap: () => {
                         // TODO: Conditionally do this when the username and password are correct (crosscheck with firebase).
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HomePage(),
+                          builder: (context) =>
+                              HomePage(userName: usernameController.text),
                         ))
                       }),
 
