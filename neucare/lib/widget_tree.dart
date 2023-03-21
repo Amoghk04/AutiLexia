@@ -1,5 +1,5 @@
 import 'package:neucare/auth.dart';
-import 'package:neucare/pages/signin_page.dart';
+import 'package:neucare/pages/home_page.dart';
 import 'package:neucare/pages/login_register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       stream: Auth().authStateChanges,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return SigninPage();
+          return HomePage();
         } else {
           return const LoginPage();
         }

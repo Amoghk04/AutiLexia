@@ -19,8 +19,8 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> signInWithEmailAndPassword() async {
     try {
       await Auth().signInWithEmailAndPassword(
-          email: _controllerEmail.text,
-          password: _controllerPassword.text,
+        email: _controllerEmail.text,
+        password: _controllerPassword.text,
       );
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -47,10 +47,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _entryField(
-      String title,
-      TextEditingController controller,
+    String title,
+    TextEditingController controller,
+    bool obscureField,
   ) {
     return TextField(
+      obscureText: obscureField,
       controller: controller,
       decoration: InputDecoration(
         labelText: title,
@@ -80,6 +82,7 @@ class _LoginPageState extends State<LoginPage> {
       child: Text(isLogin ? 'Register instead' : 'Login Instead'),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,8 +97,8 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _entryField('email', _controllerEmail),
-            _entryField('password', _controllerPassword),
+            _entryField('email', _controllerEmail, false),
+            _entryField('password', _controllerPassword, true),
             _errorMessage(),
             _submitButton(),
             _loginOrRegisterButton(),
