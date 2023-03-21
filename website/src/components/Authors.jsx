@@ -18,7 +18,8 @@ const Authors = () => {
                     <motion.div className="authors__card" whileInView={{ x: [-100, -95, -90, -85, -80, -75, -70, -65, -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10, -5, 0], opacity: [0, 0.2, 0.4, 0.6, 0.8, 1], }}>
                         <h1 className="heading-black">Abhay Bhandarkar</h1>
                         <ul>
-                            <li className="authors__description body-light-black">[Please fill in]</li>
+                            <li className="authors__description body-light-black">Team lead</li>
+                            <li className="authors__description body-light-black">Machine learning, Deep learning, Flutter developer</li>
                         </ul>
                     </motion.div>
 
@@ -33,7 +34,7 @@ const Authors = () => {
                     <motion.div className="authors__card" whileInView={{ x: [-100, -95, -90, -85, -80, -75, -70, -65, -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10, -5, 0], opacity: [0, 0.2, 0.4, 0.6, 0.8, 1], }}>
                         <h1 className="heading-black body-light-black">Gagan P</h1>
                         <ul>
-                            <li className="authors__description body-light-black">[Please fill in]</li>
+                            <li className="authors__description body-light-black">Fullstack developer, AIML</li>
                         </ul>
                     </motion.div>
                 </div>
