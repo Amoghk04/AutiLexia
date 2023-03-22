@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/auth.dart';
+import 'package:neucare/pages/profile_page.dart';
 
 class AppDrawer extends StatelessWidget {
   final User? user = Auth().currentUser;
@@ -27,6 +28,12 @@ class AppDrawer extends StatelessWidget {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        ListTile(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => ProfilePage(user: user)));
+          },
+        ),
         const Spacer(flex: 10),
         _signOutButton(),
       ],
