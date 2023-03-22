@@ -10,17 +10,6 @@ class AppDrawer extends StatelessWidget {
     await Auth().signOut();
   }
 
-  Widget _signOutButton() {
-    return ElevatedButton(
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.accents[5])),
-      onPressed: signOut,
-      child: const Text(
-        'Sign Out',
-      ),
-    );
-  }
-
   AppDrawer({super.key});
 
   @override
