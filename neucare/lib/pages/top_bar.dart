@@ -18,7 +18,7 @@ class TopBar extends HookWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Text(
+        const Text(
             textScaleFactor: 0.7,
             style: TextStyle(color: Colors.black),
             "Tokens: "),

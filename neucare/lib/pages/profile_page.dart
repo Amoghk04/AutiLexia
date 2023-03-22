@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:neucare/pages/app_bar.dart';
+import 'package:neucare/pages/custom_container.dart';
 
 class ProfilePage extends StatelessWidget {
   final User? user;
@@ -7,6 +9,11 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(height: 25);
+    return customContainer(Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: customAppBar(0, Colors.lightBlue[50], Colors.black, "Profile"),
+      // TODO: Write the profile page styling in the body of this Scaffold.
+      body: const SizedBox(height: 20),
+    ));
   }
 }
