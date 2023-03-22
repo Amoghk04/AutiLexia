@@ -20,7 +20,7 @@ class TopBar extends HookWidget {
       children: <Widget>[
         Text(
             textScaleFactor: 0.7,
-            style: TextStyle(color: Colors.grey.shade400),
+            style: TextStyle(color: Colors.black),
             "Tokens: "),
         Stack(alignment: Alignment.centerLeft, children: [
           Container(
@@ -42,7 +42,7 @@ class TopBar extends HookWidget {
           ),
           Image.asset(
             imagePath,
-            scale: 3.5,
+            scale: 4.0,
           ),
         ]),
       ],
