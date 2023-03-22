@@ -15,8 +15,7 @@ class TopBar extends HookWidget {
       tokenCount.value += 1;
       return null;
     }, []);
-    return Container(
-        child: Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(
@@ -26,26 +25,27 @@ class TopBar extends HookWidget {
         Stack(alignment: Alignment.centerLeft, children: [
           Container(
             padding:
-                const EdgeInsets.only(left: 5, right: 10, top: 5, bottom: 3),
+                const EdgeInsets.only(left: 5, right: 15, top: 5, bottom: 3),
             decoration: BoxDecoration(
                 color: Colors.grey.shade200,
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10))),
+                    topLeft: Radius.circular(7.5),
+                    bottomLeft: Radius.circular(7.5))),
             child: Text(
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: Colors.grey.shade800,
+                fontSize: 15.0,
               ),
               "${tokenCount.value}",
             ),
           ),
           Image.asset(
             imagePath,
-            scale: 4,
+            scale: 3.5,
           ),
         ]),
       ],
-    ));
+    );
   }
 }

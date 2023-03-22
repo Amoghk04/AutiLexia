@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String? errorMessage = '';
   bool isLogin = true;
+  String text = "Don't have an account? Register instead!";
 
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
@@ -42,8 +43,19 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  Widget _logo() {
+    return Image.asset("lib/images/logo.png");
+  }
+
   Widget _title() {
     return const Text('Neucare');
+  }
+
+  Widget _welcome() {
+    return const Text(
+        style: TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black54),
+        'Welcome in!');
   }
 
   Widget _entryField(
@@ -51,21 +63,37 @@ class _LoginPageState extends State<LoginPage> {
     TextEditingController controller,
     bool obscureField,
   ) {
-    return TextField(
-      obscureText: obscureField,
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: title,
-      ),
-    );
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        child: TextField(
+          obscureText: obscureField,
+          controller: controller,
+          decoration: InputDecoration(
+            enabledBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                borderSide: BorderSide(color: Colors.white)),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+              borderSide: BorderSide(color: Colors.accents[5]),
+            ),
+            fillColor: Colors.grey.shade300,
+            filled: true,
+            hintText: title,
+            hintStyle: TextStyle(color: Colors.grey[500]),
+          ),
+        ));
   }
 
   Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
+    return Text(
+        style: const TextStyle(color: Colors.redAccent),
+        errorMessage == '' ? '' : 'Error! $errorMessage');
   }
 
   Widget _submitButton() {
     return ElevatedButton(
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.accents[5])),
       onPressed:
           isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
       child: Text(isLogin ? 'Login' : 'Register'),
@@ -77,34 +105,49 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {
         setState(() {
           isLogin = !isLogin;
+          if (isLogin) {
+            text = "Don't have an account? Register instead!";
+          } else {
+            text = "Have an account? Login instead!";
+          }
         });
       },
-      child: Text(isLogin ? 'Register instead' : 'Login Instead'),
+      child: Text(style: TextStyle(color: Colors.accents[5]), text),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _title(),
-      ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _entryField('email', _controllerEmail, false),
-            _entryField('password', _controllerPassword, true),
-            _errorMessage(),
-            _submitButton(),
-            _loginOrRegisterButton(),
-          ],
+        appBar: AppBar(
+          backgroundColor: Colors.accents[15],
+          foregroundColor: Colors.white,
+          title: _title(),
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+          child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minWidth: MediaQuery.of(context).size.width,
+                minHeight: MediaQuery.of(context).size.height,
+              ),
+              child: IntrinsicHeight(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    _welcome(),
+                    _logo(),
+                    _entryField('Email', _controllerEmail, false),
+                    const SizedBox(height: 5),
+                    _entryField('Password', _controllerPassword, true),
+                    const SizedBox(height: 5),
+                    _errorMessage(),
+                    _submitButton(),
+                    _loginOrRegisterButton(),
+                  ],
+                ),
+              )),
+        ));
   }
 }
