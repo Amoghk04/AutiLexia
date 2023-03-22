@@ -48,14 +48,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title() {
-    return const Text('Neucare');
+    return const Text('Welcome in!');
   }
 
   Widget _welcome() {
     return const Text(
         style: TextStyle(
             fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black54),
-        'Welcome in!');
+        'Neucare');
   }
 
   Widget _entryField(
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _errorMessage() {
     return Text(
         style: const TextStyle(color: Colors.redAccent),
-        errorMessage == '' ? '' : 'Error! $errorMessage');
+        errorMessage == '' ? '' : 'Error! $errorMessage. Please register again.');
   }
 
   Widget _submitButton() {
@@ -118,9 +118,20 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFFFF6E40), Color(0xFFE0F7FA)]
+          )
+        ),
+
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.accents[15],
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           foregroundColor: Colors.white,
           title: _title(),
         ),
@@ -148,6 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               )),
-        ));
+        )),
+    );
   }
 }

@@ -15,10 +15,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFE1F5FE), Color(0xFF81D4FA), Color(0xFF43A047)]
+          )
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.accents[15],
-          foregroundColor: Colors.white,
+          elevation: 0,
+          backgroundColor: Colors.lightBlue[50],
+          foregroundColor: Colors.black,
           title: _title(),
         ),
         drawer: AppDrawer(),
@@ -34,6 +44,7 @@ class HomePage extends StatelessWidget {
               ]),
             ],
           ),
-        ));
+        )),
+    );
   }
 }
