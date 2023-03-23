@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class TopBar extends HookWidget {
   final String imagePath;
-  final String? userName;
-  const TopBar({super.key, required this.imagePath, required this.userName});
+  final User? user;
+  const TopBar({super.key, required this.imagePath, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class TopBar extends HookWidget {
       return null;
     }, []);
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         const Text(
             textScaleFactor: 0.7,

@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/auth.dart';
-import 'package:neucare/components/top_bar.dart';
 import 'package:neucare/components/app_drawer.dart';
+import 'package:neucare/components/game_map.dart';
+import 'package:neucare/components/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:neucare/components/app_bar.dart';
 import 'package:neucare/components/custom_container.dart';
@@ -24,13 +25,10 @@ class HomePage extends StatelessWidget {
             width: double.infinity,
             child: Column(
               children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      TopBar(
-                          imagePath: 'lib/images/token.png',
-                          userName: user?.displayName)
-                    ]),
+                Column(children: <Widget>[
+                  TopBar(imagePath: 'lib/images/token.png', user: user),
+                  GameMap(user: user),
+                ]),
               ],
             ),
           )),
