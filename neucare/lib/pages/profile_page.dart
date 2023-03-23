@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:neucare/pages/app_bar.dart';
-import 'package:neucare/pages/custom_container.dart';
-import 'package:neucare/pages/login_register_page.dart';
+import 'package:neucare/components/app_bar.dart';
+import 'package:neucare/components/custom_container.dart';
 
 class ProfilePage extends StatelessWidget {
   final User? user;

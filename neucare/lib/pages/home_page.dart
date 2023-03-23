@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/auth.dart';
-import 'package:neucare/pages/top_bar.dart';
-import 'package:neucare/pages/app_drawer.dart';
+import 'package:neucare/components/top_bar.dart';
+import 'package:neucare/components/app_drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:neucare/pages/app_bar.dart';
-import 'package:neucare/pages/custom_container.dart';
+import 'package:neucare/components/app_bar.dart';
+import 'package:neucare/components/custom_container.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
