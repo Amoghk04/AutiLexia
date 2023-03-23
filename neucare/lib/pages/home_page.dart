@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/auth.dart';
 import 'package:neucare/components/app_drawer.dart';
-import 'package:neucare/components/game_map.dart';
 import 'package:neucare/components/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:neucare/components/app_bar.dart';
@@ -23,12 +22,22 @@ class HomePage extends StatelessWidget {
           body: SizedBox(
             height: double.infinity,
             width: double.infinity,
-            child: Column(
-              children: [
-                Column(children: <Widget>[
-                  TopBar(imagePath: 'lib/images/token.png', user: user),
-                  GameMap(user: user),
-                ]),
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverAppBar(
+                  actions: const [],
+                  pinned: true,
+                  automaticallyImplyLeading: false,
+                  backgroundColor: Colors.transparent,
+                  title: TopBar(imagePath: 'lib/images/token.png', user: user),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) =>
+                        const ListTile(title: CircleAvatar(radius: 15)),
+                    childCount: 50,
+                  ),
+                )
               ],
             ),
           )),
