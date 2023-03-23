@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/pages/app_bar.dart';
 import 'package:neucare/pages/custom_container.dart';
-import 'package:neucare/pages/login_register_page.dart';
 
 class ProfilePage extends StatelessWidget {
   final User? user;
@@ -25,12 +24,9 @@ class ProfilePage extends StatelessWidget {
                 child: Image.asset("lib/images/profile_placeholder.png"),
               ),
               const SizedBox(height: 20),
-              Text('User Name',
-                  style: Theme.of(context).textTheme.headlineSmall),
-              const SizedBox(height: 15),
               Text('${user?.email}',
-                  style: Theme.of(context).textTheme.bodyLarge),
-              const SizedBox(height: 40),
+                  style: Theme.of(context).textTheme.headlineSmall),
+              const SizedBox(height: 80),
               SizedBox(
                 height: 120,
                 width: 120,
