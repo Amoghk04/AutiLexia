@@ -44,6 +44,13 @@ class AppDrawer extends StatelessWidget {
                     const Text("Sign Out"),
                   ]),
               onClick: signOut),
+          MLMenuItem(
+              content: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const[
+                    Text(""),
+                  ]),
+              onClick: () {}),
         ]);
   }
 }
