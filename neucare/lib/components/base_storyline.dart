@@ -13,12 +13,23 @@ Function(String, Widget, User?) baseWidget =
         body: SizedBox(
           height: double.infinity,
           width: double.infinity,
-          child: Column(
-            children: [
-              Column(children: <Widget>[
-                TopBar(imagePath: 'lib/images/token.png', user: user),
-                body,
-              ]),
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                actions: const [],
+                pinned: true,
+                automaticallyImplyLeading: false,
+                backgroundColor: Colors.transparent,
+                title: TopBar(imagePath: "lib/images/token.png", user: user),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => ListTile(
+                    title: Text(title),
+                  ),
+                  childCount: 1,
+                ),
+              )
             ],
           ),
         )),

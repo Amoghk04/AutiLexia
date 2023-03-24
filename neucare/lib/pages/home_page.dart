@@ -5,11 +5,23 @@ import 'package:neucare/components/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:neucare/components/app_bar.dart';
 import 'package:neucare/components/custom_container.dart';
+import 'package:neucare/storylines/first_storyline.dart';
+import 'package:neucare/storylines/second_storyline.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
   final User? user = Auth().currentUser;
+
+  Function(User?) getStoryLineFromIndex(int index) {
+    if (index == 0) {
+      return (user) => FirstStoryLine(user: user);
+    } else if (index == 1) {
+      return (user) => SecondStoryLine(user: user);
+    } else {
+      return (user) => SecondStoryLine(user: user);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +41,18 @@ class HomePage extends StatelessWidget {
                   pinned: true,
                   automaticallyImplyLeading: false,
                   backgroundColor: Colors.transparent,
-                  title: TopBar(imagePath: 'lib/images/token.png', user: user),
+                  title: TopBar(imagePath: "lib/images/token.png", user: user),
                 ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
-                    (context, index) =>
-                        const ListTile(title: CircleAvatar(radius: 15)),
+                    (context, index) => ListTile(
+                        title: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      getStoryLineFromIndex(index)(user)));
+                            },
+                            child: const CircleAvatar(radius: 15))),
                     childCount: 50,
                   ),
                 )
