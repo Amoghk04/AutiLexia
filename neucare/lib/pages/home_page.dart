@@ -33,18 +33,18 @@ class HomePage extends StatelessWidget {
             width: double.infinity,
             child: Column(children: [
               Container(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
                   child:
                       customAppBar(Colors.lightBlue[50], Colors.black, user)),
               Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.width / 3),
+                      vertical: MediaQuery.of(context).size.width / 10),
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text("Welcome!",
                             style: Theme.of(context).textTheme.titleLarge),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 20),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -84,21 +84,22 @@ class HomePage extends StatelessWidget {
                                   ])),
                             ]),
                       ])),
+              const SizedBox(height: 380),
               Container(
                   height: MediaQuery.of(context).size.height / 10,
                   width: MediaQuery.of(context).size.width - 20,
                   decoration: const BoxDecoration(
-                      color: Colors.white38,
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Column(children: const [
                     Text("Reminder",
                         style: TextStyle(
-                            color: Colors.grey,
+                            color: Colors.black87,
                             fontSize: 35,
                             fontWeight: FontWeight.bold)),
                     SizedBox(height: 10),
-                    Text("Reminder",
-                        style: TextStyle(color: Colors.white70, fontSize: 25)),
+                    Text("You have 2 modules left for the day!!",
+                        style: TextStyle(color: Colors.black87, fontSize: 20)),
                   ]))
             ]),
           )),
