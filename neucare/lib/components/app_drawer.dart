@@ -20,10 +20,13 @@ class AppDrawer extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Color(0xFFE1F5FE), Color(0xFF81D4FA), Color(0xFF43A047)]),
-        header: Image.asset(
-          "lib/images/logo.png",
-          alignment: Alignment.center,
-        ),
+        header: Column(children: [
+          Image.asset(
+            "lib/images/logo.png",
+            alignment: Alignment.center,
+          ),
+          Text("Neucare", style: Theme.of(context).textTheme.titleLarge)
+        ]),
         children: [
           MLMenuItem(
               content: Row(
@@ -47,7 +50,7 @@ class AppDrawer extends StatelessWidget {
           MLMenuItem(
               content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const[
+                  children: const [
                     Text(""),
                   ]),
               onClick: () {}),
