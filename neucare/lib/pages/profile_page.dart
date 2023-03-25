@@ -11,13 +11,16 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return customContainer(Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: customAppBar(0, Colors.lightBlue[50], Colors.black, "Profile"),
       // Write the profile page styling in the body of this Scaffold.
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              Container(
+                padding: const EdgeInsets.only(left: 5, right: 5),
+                child: customAppBar(Colors.lightBlue[50], Colors.black, user),
+              ),
               SizedBox(
                 width: 120,
                 height: 120,

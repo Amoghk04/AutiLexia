@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/auth.dart';
-import 'package:neucare/components/app_bar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -84,9 +83,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _errorMessage() {
     return Text(
         style: const TextStyle(color: Colors.redAccent),
-        errorMessage == ''
-            ? ''
-            : 'Error! $errorMessage. Please register again.');
+        errorMessage == '' ? '' : 'Error! $errorMessage. Please enter again.');
   }
 
   Widget _submitButton() {
@@ -125,36 +122,25 @@ class _LoginPageState extends State<LoginPage> {
               colors: [Color(0xFFFF6E40), Color(0xFFE0F7FA)])),
       child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: customAppBar(
-            0,
-            Colors.transparent,
-            Colors.white,
-            "Neucare",
-          ),
           body: SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-            child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minWidth: MediaQuery.of(context).size.width,
-                  minHeight: MediaQuery.of(context).size.height,
-                ),
-                child: IntrinsicHeight(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      _welcome(),
-                      _logo(),
-                      _entryField('Email', _controllerEmail, false),
-                      const SizedBox(height: 5),
-                      _entryField('Password', _controllerPassword, true),
-                      const SizedBox(height: 5),
-                      _errorMessage(),
-                      _submitButton(),
-                      _loginOrRegisterButton(),
-                    ],
-                  ),
-                )),
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height / 6,
+                left: 20,
+                right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _welcome(),
+                _logo(),
+                _entryField('Email', _controllerEmail, false),
+                const SizedBox(height: 5),
+                _entryField('Password', _controllerPassword, true),
+                const SizedBox(height: 5),
+                _errorMessage(),
+                _submitButton(),
+                _loginOrRegisterButton(),
+              ],
+            ),
           )),
     );
   }

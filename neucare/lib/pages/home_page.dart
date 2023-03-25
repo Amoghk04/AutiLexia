@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/auth.dart';
 import 'package:neucare/components/app_drawer.dart';
-import 'package:neucare/components/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:neucare/components/app_bar.dart';
 import 'package:neucare/components/custom_container.dart';
@@ -28,36 +27,30 @@ class HomePage extends StatelessWidget {
     return customContainer(
       Scaffold(
           backgroundColor: Colors.transparent,
-          appBar:
-              customAppBar(0, Colors.lightBlue[50], Colors.black, "Neucare"),
           drawer: AppDrawer(),
           body: SizedBox(
             height: double.infinity,
             width: double.infinity,
-            child: CustomScrollView(
-              slivers: <Widget>[
-                SliverAppBar(
-                  actions: const [],
-                  pinned: true,
-                  automaticallyImplyLeading: false,
-                  backgroundColor: Colors.transparent,
-                  title: TopBar(imagePath: "lib/images/token.png", user: user),
-                ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) => ListTile(
-                        title: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      getStoryLineFromIndex(index)(user)));
-                            },
-                            child: const CircleAvatar(radius: 15))),
-                    childCount: 50,
-                  ),
-                )
-              ],
-            ),
+            child: Column(children: [
+              Container(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child:
+                      customAppBar(Colors.lightBlue[50], Colors.black, user)),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => FirstStoryLine(user: user)));
+                    },
+                    child: const CircleAvatar(radius: 15)),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SecondStoryLine(user: user)));
+                    },
+                    child: const CircleAvatar(radius: 15)),
+              ]),
+            ]),
           )),
     );
   }
