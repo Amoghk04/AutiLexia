@@ -26,16 +26,28 @@ class TopBar extends HookWidget {
         const Text(
             textScaleFactor: 0.7,
             style: TextStyle(color: Colors.black),
-            "Tokens: "),
+            "Tokens"),
+        Image.asset(
+          imagePath,
+          scale: 9.0,
+          alignment: Alignment.bottomCenter,
+        ),
+        const Text(
+          textScaleFactor: 0.7,
+          style: TextStyle(color:Colors.black),
+          ": "
+        ),
         Stack(alignment: Alignment.centerLeft, children: [
           Container(
             padding:
-                const EdgeInsets.only(left: 5, right: 15, top: 5, bottom: 3),
+                const EdgeInsets.only(left: 5, right: 25, top: 5, bottom: 3),
             decoration: BoxDecoration(
                 color: Colors.grey.shade200,
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(7.5),
-                    bottomLeft: Radius.circular(7.5))),
+                    bottomLeft: Radius.circular(7.5),
+                    topRight: Radius.circular(7.5),
+                    bottomRight: Radius.circular(7.5))),
             child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection('users')
@@ -51,10 +63,7 @@ class TopBar extends HookWidget {
                   return const Text("Loading...");
                 }),
           ),
-          Image.asset(
-            imagePath,
-            scale: 4.0,
-          ),
+
         ]),
       ],
     );
