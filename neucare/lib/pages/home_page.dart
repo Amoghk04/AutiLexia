@@ -4,6 +4,7 @@ import 'package:neucare/components/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:neucare/components/app_bar.dart';
 import 'package:neucare/components/custom_container.dart';
+import 'package:neucare/storylines/daily_challenge.dart';
 import 'package:neucare/storylines/first_storyline.dart';
 import 'package:neucare/storylines/second_storyline.dart';
 
@@ -37,14 +38,19 @@ class HomePage extends StatelessWidget {
                   child:
                       customAppBar(Colors.lightBlue[50], Colors.black, user)),
               Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.width / 10),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.width / 3,
+                      bottom: MediaQuery.of(context).size.width / 6),
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text("Welcome!",
-                            style: Theme.of(context).textTheme.titleLarge),
-                        const SizedBox(height: 20),
+                        const Text("Welcome!",
+                            style: TextStyle(
+                              fontSize: 35,
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold,
+                            )),
+                        const SizedBox(height: 30),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -63,7 +69,7 @@ class HomePage extends StatelessWidget {
                                       foregroundColor: Colors.transparent,
                                     ),
                                     SizedBox(height: 10),
-                                    Text("First story title."),
+                                    Text("First story title"),
                                   ])),
                               GestureDetector(
                                   onTap: () {
@@ -80,26 +86,49 @@ class HomePage extends StatelessWidget {
                                       foregroundColor: Colors.transparent,
                                     ),
                                     SizedBox(height: 10),
-                                    Text("Second story title."),
+                                    Text("Second story title"),
                                   ])),
                             ]),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          DailyChallenge(user: user)));
+                                },
+                                child: Column(children: const [
+                                  CircleAvatar(
+                                    backgroundImage:
+                                        AssetImage("lib/images/story.png"),
+                                    radius: 50,
+                                    foregroundColor: Colors.transparent,
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text("Daily Challenge"),
+                                ])),
+                          ],
+                        )
                       ])),
-              const SizedBox(height: 380),
               Container(
-                  height: MediaQuery.of(context).size.height / 10,
+                  height: MediaQuery.of(context).size.height / 6,
                   width: MediaQuery.of(context).size.width - 20,
-                  decoration: const BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  decoration: BoxDecoration(
+                      color: Colors.lightBlue[50],
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(15))),
                   child: Column(children: const [
                     Text("Reminder",
                         style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 35,
+                            color: Colors.black54,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
+                    Divider(),
+                    SizedBox(height: 40),
                     Text("You have 2 modules left for the day!!",
-                        style: TextStyle(color: Colors.black87, fontSize: 20)),
+                        style: TextStyle(color: Colors.black45, fontSize: 20)),
                   ]))
             ]),
           )),
