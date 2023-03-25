@@ -7,7 +7,7 @@ class SecondStoryLine extends StatelessWidget {
   const SecondStoryLine({super.key, required this.user});
 
   Widget _body() {
-    return const Text("This is the second story line.");
+    return const Text("\n\nThis is the second story line.");
   }
 
   @override
