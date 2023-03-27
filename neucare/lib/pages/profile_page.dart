@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/components/app_bar.dart';
 import 'package:neucare/components/custom_container.dart';
+import 'package:neucare/pages/profilepagestyling/pet_slider.dart';
+
+final List<String> imgList = [
+  'lib/images/pet.png',
+  'lib/images/pet2.jpeg',
+  'lib/images/pet3.jpeg',
+
+];
 
 class ProfilePage extends StatelessWidget {
   final User? user;
@@ -29,17 +37,15 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 20),
               Text('${user?.email}',
                   style: Theme.of(context).textTheme.headlineSmall),
-              const SizedBox(height: 80),
-              SizedBox(
-                height: 120,
-                width: 120,
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset("lib/images/pet.png")),
-              ),
+              const SizedBox(height: 40),
+              CarouselWithDots(imgList: imgList),
               const SizedBox(height: 20),
-              Text('Pet Name',
-                  style: Theme.of(context).textTheme.headlineSmall),
+              const Text('Pet Name',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                ),
+              ),
               const Divider(),
             ],
           ),
