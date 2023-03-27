@@ -16,7 +16,12 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
   Widget build(BuildContext context) {
     final List<Widget> imageSliders = widget.imgList
         .map(
-          (item) => Stack(
+          (item) => Container(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(50.0),
+              ),
+            child: Stack(
             children: [
               Image.asset(
                 item,
@@ -45,6 +50,8 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
                 ),
               ),
             ],
+          ),
+          ),
           ),
         )
         .toList();
