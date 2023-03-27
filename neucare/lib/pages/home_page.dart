@@ -104,10 +104,9 @@ class HomePage extends StatelessWidget {
                                     backgroundImage:
                                         AssetImage("lib/images/story.png"),
                                     radius: 50,
-                                    foregroundColor: Colors.transparent,
                                   ),
                                   SizedBox(height: 10),
-                                  Text("Daily Challenge"),
+                                  Text("Daily Challenge(Coming Soon!!!)"),
                                 ])),
                           ],
                         )
