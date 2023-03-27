@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class CarouselWithDots extends StatefulWidget {
-  List<String> imgList;
-  CarouselWithDots({required this.imgList});
+  final List<String> imgList;
+  const CarouselWithDots({super.key, required this.imgList});
 
   @override
-  _CarouselWithDotsState createState() => _CarouselWithDotsState();
+  State<CarouselWithDots> createState() => _CarouselWithDotsState();
 }
 
 class _CarouselWithDotsState extends State<CarouselWithDots> {
@@ -15,49 +15,43 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> imageSliders = widget.imgList
-        .map((item) => Container(
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(50.0),
-        ),
-        child: Stack(
-          children: [
-            Image.asset(
-              item,
-              fit: BoxFit.fill,
-              width: 190,
-            ),
-            Positioned(
-              bottom: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(200, 0, 0, 0),
-                      Color.fromARGB(0, 0, 0, 0),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
+        .map(
+          (item) => Stack(
+            children: [
+              Image.asset(
+                item,
+                fit: BoxFit.fill,
+                width: 190,
+              ),
+              Positioned(
+                bottom: 0.0,
+                left: 0.0,
+                right: 0.0,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromARGB(200, 0, 0, 0),
+                        Color.fromARGB(0, 0, 0, 0),
+                      ],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                    ),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
                   ),
                 ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
               ),
-            ),
-          ],
-        ),
-      ),
-    ))
+            ],
+          ),
+        )
         .toList();
 
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(20)),
+        const Padding(padding: EdgeInsets.all(20)),
         CarouselSlider(
           items: imageSliders,
           options: CarouselOptions(
@@ -94,4 +88,3 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
     );
   }
 }
-

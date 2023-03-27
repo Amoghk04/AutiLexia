@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:neucare/components/app_bar.dart';
 import 'package:neucare/components/custom_container.dart';
-import 'package:neucare/pages/profilepagestyling/pet_slider.dart';
+import 'package:neucare/components/pet_slider.dart';
 
 final List<String> imgList = [
   'lib/images/pet.png',
   'lib/images/pet2.jpeg',
   'lib/images/pet3.jpeg',
-
 ];
 
 class ProfilePage extends StatelessWidget {
@@ -19,7 +18,6 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return customContainer(Scaffold(
       backgroundColor: Colors.transparent,
-      // Write the profile page styling in the body of this Scaffold.
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20.0),
@@ -40,7 +38,8 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 40),
               CarouselWithDots(imgList: imgList),
               const SizedBox(height: 20),
-              const Text('Pet Name',
+              const Text(
+                'Pet Name',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 26,

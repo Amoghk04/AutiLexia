@@ -34,7 +34,7 @@ class DailyChallenge extends HookWidget {
                         ),
                         (!challengeCompleted.value)
                             ? const Text(
-                                "\n\nStay tuned for the daily challeneges🕰🕰.")
+                                "\n\nStay tuned for the daily challenges🕰🕰.")
                             : const Text(
                                 "\n\nDaily Challenge completed! Come back tomorrow!")
                       ]),

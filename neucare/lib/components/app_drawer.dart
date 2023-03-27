@@ -16,10 +16,7 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiLevelDrawer(
         divisionColor: Colors.accents[5],
-        gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFE1F5FE), Color(0xFF81D4FA), Color(0xFF43A047)]),
+        backgroundColor: Colors.lightBlue[50],
         header: Column(children: [
           Image.asset(
             "lib/images/logo.png",
