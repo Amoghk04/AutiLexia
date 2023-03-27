@@ -16,6 +16,7 @@ class DailyChallenge extends HookWidget {
       return null;
     }, []);
     return customContainer(
+      backgroundImgPath: "",
       Scaffold(
           backgroundColor: Colors.transparent,
           body: SizedBox(

@@ -12,6 +12,6 @@ class SecondStoryLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return baseWidget("Second Story Line", _body(), user);
+    return baseWidget(context, "Second Story Line", "", _body(), user);
   }
 }

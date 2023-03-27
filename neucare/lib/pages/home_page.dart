@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return customContainer(
+      backgroundImgPath: "",
       Scaffold(
           backgroundColor: Colors.transparent,
           drawer: AppDrawer(),
@@ -41,76 +42,72 @@ class HomePage extends StatelessWidget {
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.width / 3,
                       bottom: MediaQuery.of(context).size.width / 6),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  child: Column(children: [
+                    const Text("Welcome!",
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    const SizedBox(height: 30),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        FirstStoryLine(user: user)));
+                              },
+                              child: Column(children: const [
+                                CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage("lib/images/story.png"),
+                                  radius: 50,
+                                  foregroundColor: Colors.transparent,
+                                ),
+                                SizedBox(height: 10),
+                                Text("First story title"),
+                              ])),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        SecondStoryLine(user: user)));
+                              },
+                              child: Column(children: const [
+                                CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage("lib/images/story.png"),
+                                  radius: 50,
+                                  foregroundColor: Colors.transparent,
+                                ),
+                                SizedBox(height: 10),
+                                Text("Second story title"),
+                              ])),
+                        ]),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Welcome!",
-                            style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.black87,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        const SizedBox(height: 30),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                FirstStoryLine(user: user)));
-                                  },
-                                  child: Column(children: const [
-                                    CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage("lib/images/story.png"),
-                                      radius: 50,
-                                      foregroundColor: Colors.transparent,
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text("First story title"),
-                                  ])),
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                SecondStoryLine(user: user)));
-                                  },
-                                  child: Column(children: const [
-                                    CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage("lib/images/story.png"),
-                                      radius: 50,
-                                      foregroundColor: Colors.transparent,
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text("Second story title"),
-                                  ])),
-                            ]),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          DailyChallenge(user: user)));
-                                },
-                                child: Column(children: const [
-                                  CircleAvatar(
-                                    backgroundImage:
-                                        AssetImage("lib/images/story.png"),
-                                    radius: 50,
-                                  ),
-                                  SizedBox(height: 10),
-                                  Text("Daily Challenge(Coming Soon!!!)"),
-                                ])),
-                          ],
-                        )
-                      ])),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      DailyChallenge(user: user)));
+                            },
+                            child: Column(children: const [
+                              CircleAvatar(
+                                backgroundImage:
+                                    AssetImage("lib/images/story.png"),
+                                radius: 50,
+                              ),
+                              SizedBox(height: 10),
+                              Text("Daily Challenge(Coming Soon!!!)"),
+                            ])),
+                      ],
+                    )
+                  ])),
               Container(
                   height: MediaQuery.of(context).size.height / 6,
                   width: MediaQuery.of(context).size.width - 20,
