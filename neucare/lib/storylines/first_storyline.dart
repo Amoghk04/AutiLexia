@@ -48,11 +48,6 @@ class FirstStoryLine extends HookWidget {
                   displayOptions.value = true;
                   displayText.value = "Restart";
                 },
-                onTap: () {
-                  startStory.value = false;
-                  displayText.value = "Restart";
-                  displayOptions.value = false;
-                },
               ))
           : const SizedBox(height: 0, width: 0),
       const SizedBox(height: 10),
