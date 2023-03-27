@@ -47,15 +47,11 @@ class _LoginPageState extends State<LoginPage> {
     return Image.asset("lib/images/logo.png");
   }
 
-  Widget _title() {
-    return const Text('Neucare');
-  }
-
   Widget _welcome() {
     return const Text(
         style: TextStyle(
             fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black54),
-        'Welcome in!');
+        'Neucare');
   }
 
   Widget _entryField(
@@ -87,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _errorMessage() {
     return Text(
         style: const TextStyle(color: Colors.redAccent),
-        errorMessage == '' ? '' : 'Error! $errorMessage');
+        errorMessage == '' ? '' : 'Error! $errorMessage. Please enter again.');
   }
 
   Widget _submitButton() {
@@ -118,36 +114,34 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.accents[15],
-          foregroundColor: Colors.white,
-          title: _title(),
-        ),
-        body: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
-          padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-          child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: MediaQuery.of(context).size.width,
-                minHeight: MediaQuery.of(context).size.height,
-              ),
-              child: IntrinsicHeight(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    _welcome(),
-                    _logo(),
-                    _entryField('Email', _controllerEmail, false),
-                    const SizedBox(height: 5),
-                    _entryField('Password', _controllerPassword, true),
-                    const SizedBox(height: 5),
-                    _errorMessage(),
-                    _submitButton(),
-                    _loginOrRegisterButton(),
-                  ],
-                ),
-              )),
-        ));
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFFF6E40), Color(0xFFE0F7FA)])),
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height / 6,
+                left: 20,
+                right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _welcome(),
+                _logo(),
+                _entryField('Email', _controllerEmail, false),
+                const SizedBox(height: 5),
+                _entryField('Password', _controllerPassword, true),
+                const SizedBox(height: 5),
+                _errorMessage(),
+                _submitButton(),
+                _loginOrRegisterButton(),
+              ],
+            ),
+          )),
+    );
   }
 }

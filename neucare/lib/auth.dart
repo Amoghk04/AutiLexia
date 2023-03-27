@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:neucare/db.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -10,7 +11,7 @@ class Auth {
   Future<void> signInWithEmailAndPassword({
     required String email,
     required String password,
-}) async {
+  }) async {
     await _firebaseAuth.signInWithEmailAndPassword(
       email: email,
       password: password,
@@ -25,9 +26,11 @@ class Auth {
       email: email,
       password: password,
     );
+    await DatabaseManager().addCollectionUser(email: currentUser?.email);
   }
 
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }
 }
+
