@@ -5,9 +5,9 @@ import 'package:neucare/components/custom_container.dart';
 import 'package:neucare/components/pet_slider.dart';
 
 final List<String> imgList = [
-  'lib/images/pet.png',
-  'lib/images/pet2.jpeg',
-  'lib/images/pet3.jpeg',
+  'lib/images/Unicorndalle.png',
+  'lib/images/Pheonix.png',
+  'lib/images/Kitsune.png',
 ];
 
 class ProfilePage extends StatelessWidget {
