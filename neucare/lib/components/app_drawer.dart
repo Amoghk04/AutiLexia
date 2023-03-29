@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'package:neucare/auth.dart';
 import 'package:neucare/pages/profile_page.dart';
+import 'package:neucare/pages/help_page.dart';
 
 class AppDrawer extends StatelessWidget {
   final User? user = Auth().currentUser;
@@ -36,6 +37,18 @@ class AppDrawer extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => ProfilePage(user: user)));
               }),
+          MLMenuItem(
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset("lib/images/help.jpeg"),
+                const Text("Help"),
+              ]),
+            onClick: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => HelpPage(user: user)));
+            }
+          ),
           MLMenuItem(
               content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
