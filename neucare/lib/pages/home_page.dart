@@ -13,16 +13,6 @@ class HomePage extends StatelessWidget {
 
   final User? user = Auth().currentUser;
 
-  Function(User?) getStoryLineFromIndex(int index) {
-    if (index == 0) {
-      return (user) => FirstStoryLine(user: user);
-    } else if (index == 1) {
-      return (user) => SecondStoryLine(user: user);
-    } else {
-      return (user) => SecondStoryLine(user: user);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return customContainer(

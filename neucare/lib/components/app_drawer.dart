@@ -38,17 +38,16 @@ class AppDrawer extends StatelessWidget {
                     builder: (context) => ProfilePage(user: user)));
               }),
           MLMenuItem(
-            content: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset("lib/images/help.jpeg"),
-                const Text("Help"),
-              ]),
-            onClick: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => HelpPage(user: user)));
-            }
-          ),
+              content: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset("lib/images/help.png"),
+                    const Text("Help"),
+                  ]),
+              onClick: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => HelpPage(user: user)));
+              }),
           MLMenuItem(
               content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
