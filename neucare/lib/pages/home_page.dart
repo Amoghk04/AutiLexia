@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 35,
                           color: Colors.black87,
-                          fontWeight: FontWeight.bold,
+                          fontFamily: 'LuckiestGuy',
                         )),
                     const SizedBox(height: 30),
                     Row(
@@ -57,7 +57,12 @@ class HomePage extends StatelessWidget {
                                   foregroundColor: Colors.transparent,
                                 ),
                                 SizedBox(height: 10),
-                                Text("First story title"),
+                                Text("Henry: The Autistic Parrot",
+                                style: TextStyle(
+                                  fontFamily: 'AmaticSC',
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 20,
+                                )),
                               ])),
                           GestureDetector(
                               onTap: () {
@@ -73,7 +78,12 @@ class HomePage extends StatelessWidget {
                                   foregroundColor: Colors.transparent,
                                 ),
                                 SizedBox(height: 10),
-                                Text("Second story title"),
+                                Text("Second story title",
+                                    style: TextStyle(
+                                      fontFamily: 'AmaticSC',
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 20,
+                                    )),
                               ])),
                         ]),
                     const SizedBox(height: 20),
@@ -93,7 +103,12 @@ class HomePage extends StatelessWidget {
                                 radius: 50,
                               ),
                               SizedBox(height: 10),
-                              Text("Daily Challenge(Coming Soon!!!)"),
+                              Text("Daily Challenge(Coming Soon!!!)",
+                                  style: TextStyle(
+                                    fontFamily: 'AmaticSC',
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 20,
+                                  )),
                             ])),
                       ],
                     )
