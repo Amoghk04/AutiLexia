@@ -22,27 +22,47 @@ class FirstStoryLine extends HookWidget {
     List<TypewriterAnimatedText> text = story
         .map((paragraph) => TypewriterAnimatedText(
               paragraph,
+              cursor: '',
               speed: const Duration(milliseconds: 50),
               textAlign: TextAlign.center,
-              textStyle: const TextStyle(fontSize: 20),
+              textStyle: const TextStyle(fontSize: 24,
+              fontFamily: 'AmaticSC',
+              fontWeight: FontWeight.w900),
             ))
         .toList();
-    return Column(children: [
-      const CircleAvatar(radius: 20),
+    return Column(
+        children: [
+      const Text("Henry: The Autistic Parrot",
+          style: TextStyle(
+            fontFamily: 'LuckiestGuy',
+            fontSize: 20,
+          )),
+      const SizedBox(height: 50),
+      Image.asset('lib/images/Pheonix.png',
+      height: 100,
+      ),
       const SizedBox(height: 10),
-      const Text("Name of the pet", style: TextStyle(fontSize: 15)),
-      const SizedBox(height: 20),
+      const Text("Name of the pet",
+          style: TextStyle(
+            fontSize: 15,
+            fontFamily: 'LuckiestGuy',
+            fontWeight: FontWeight.w100,
+          ),
+      ),
+      const SizedBox(height: 30),
       (startStory.value)
           ? Container(
               width: MediaQuery.of(context).size.width - 20,
-              height: MediaQuery.of(context).size.height / 10,
+              height: MediaQuery.of(context).size.height / 6,
               decoration: BoxDecoration(
                   color: Colors.lightBlue[50],
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
               child: AnimatedTextKit(
                 animatedTexts: text,
+                displayFullTextOnTap: true,
                 repeatForever: false,
-                pause: const Duration(seconds: 3),
+                stopPauseOnTap: true,
+                pause: const Duration(seconds: 2),
                 totalRepeatCount: 1,
                 onFinished: () {
                   displayOptions.value = true;
@@ -70,15 +90,14 @@ class FirstStoryLine extends HookWidget {
                     displayText.value = "Start";
                     displayOptions.value = false;
                   },
-                  child: Text(displayText.value)),
+                  child: Text(displayText.value, style: const TextStyle(
+                    backgroundColor: Colors.transparent
+                  ))),
             ])
           : const SizedBox(height: 0, width: 0),
       const SizedBox(height: 40),
       (!startStory.value)
           ? Column(children: [
-              const Text("Title of the story.",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
-              const SizedBox(height: 20),
               Container(
                   width: MediaQuery.of(context).size.width - 20,
                   height: MediaQuery.of(context).size.height / 4,
@@ -86,8 +105,14 @@ class FirstStoryLine extends HookWidget {
                       color: Colors.lightBlue[50],
                       borderRadius:
                           const BorderRadius.all(Radius.circular(10))),
-                  child: const Text("Description of the story.",
-                      textAlign: TextAlign.center)),
+                  child: const Text("\nThis is the story about Henry, a parrot in the pet world, diagnosed with autism and the hardships as well as the positives it experienced throughout its life.",
+                      textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: "Raleway",
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20
+                  ))),
+              const SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
                     startStory.value = true;

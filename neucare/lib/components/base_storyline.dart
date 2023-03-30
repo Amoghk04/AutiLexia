@@ -18,8 +18,8 @@ Widget baseWidget(BuildContext context, String title, String backgroundImgPath,
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.width / 3,
-                    bottom: MediaQuery.of(context).size.width / 6),
+                    top: MediaQuery.of(context).size.width / 8,
+                    bottom: MediaQuery.of(context).size.width / 8),
                 child: body,
               ),
             ]))),
