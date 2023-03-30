@@ -91,7 +91,7 @@ class FirstStoryLine extends HookWidget {
                     displayOptions.value = false;
                   },
                   child: Text(displayText.value, style: const TextStyle(
-                    color: Colors.transparent
+                    backgroundColor: Colors.transparent
                   ))),
             ])
           : const SizedBox(height: 0, width: 0),
