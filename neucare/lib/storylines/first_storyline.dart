@@ -25,35 +25,37 @@ class FirstStoryLine extends HookWidget {
               cursor: '',
               speed: const Duration(milliseconds: 50),
               textAlign: TextAlign.center,
-              textStyle: const TextStyle(fontSize: 24,
-              fontFamily: 'AmaticSC',
-              fontWeight: FontWeight.w900),
+              textStyle: const TextStyle(
+                  fontSize: 24,
+                  fontFamily: 'AmaticSC',
+                  fontWeight: FontWeight.w900),
             ))
         .toList();
-    return Column(
-        children: [
+    return Column(children: [
       const Text("Henry: The Autistic Parrot",
           style: TextStyle(
             fontFamily: 'LuckiestGuy',
             fontSize: 20,
           )),
       const SizedBox(height: 50),
-      Image.asset('lib/images/Pheonix.png',
-      height: 100,
+      Image.asset(
+        'lib/images/Pheonix.png',
+        height: 100,
       ),
       const SizedBox(height: 10),
-      const Text("Name of the pet",
-          style: TextStyle(
-            fontSize: 15,
-            fontFamily: 'LuckiestGuy',
-            fontWeight: FontWeight.w100,
-          ),
+      const Text(
+        "Name of the pet",
+        style: TextStyle(
+          fontSize: 15,
+          fontFamily: 'LuckiestGuy',
+          fontWeight: FontWeight.w100,
+        ),
       ),
       const SizedBox(height: 30),
       (startStory.value)
           ? Container(
               width: MediaQuery.of(context).size.width - 20,
-              height: MediaQuery.of(context).size.height / 6,
+              height: MediaQuery.of(context).size.height / 7,
               decoration: BoxDecoration(
                   color: Colors.lightBlue[50],
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
@@ -75,7 +77,7 @@ class FirstStoryLine extends HookWidget {
           ? Column(children: [
               Container(
                   width: MediaQuery.of(context).size.width - 20,
-                  height: MediaQuery.of(context).size.height / 6,
+                  height: MediaQuery.of(context).size.height / 7,
                   decoration: BoxDecoration(
                       color: Colors.lightBlue[50],
                       borderRadius:
@@ -90,9 +92,9 @@ class FirstStoryLine extends HookWidget {
                     displayText.value = "Start";
                     displayOptions.value = false;
                   },
-                  child: Text(displayText.value, style: const TextStyle(
-                    backgroundColor: Colors.transparent
-                  ))),
+                  child: Text(displayText.value,
+                      style: const TextStyle(
+                          backgroundColor: Colors.transparent))),
             ])
           : const SizedBox(height: 0, width: 0),
       const SizedBox(height: 40),
@@ -100,18 +102,18 @@ class FirstStoryLine extends HookWidget {
           ? Column(children: [
               Container(
                   width: MediaQuery.of(context).size.width - 20,
-                  height: MediaQuery.of(context).size.height / 4,
+                  height: MediaQuery.of(context).size.height / 5,
                   decoration: BoxDecoration(
                       color: Colors.lightBlue[50],
                       borderRadius:
                           const BorderRadius.all(Radius.circular(10))),
-                  child: const Text("\nThis is the story about Henry, a parrot in the pet world, diagnosed with autism and the hardships as well as the positives it experienced throughout its life.",
+                  child: const Text(
+                      "\nThis is the story about Henry, a parrot in the pet world, diagnosed with autism and the hardships as well as the positives it experienced throughout its life.",
                       textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: "Raleway",
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20
-                  ))),
+                      style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontWeight: FontWeight.w400,
+                          fontSize: 20))),
               const SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
