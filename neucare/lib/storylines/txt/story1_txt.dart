@@ -2,7 +2,8 @@ const List<String> story1Question1 = [
   "Hello! It’s great to see you here! I am phoenix, your storyteller!",
   "I love telling stories which teach people values which help in personal and holistical development HERE WE GO!!!",
   "There was once a parrot named Henry. He has ASD(Autism Spectrum Disorder). His dad Jack and mom Carly did not know this as they didn’t see the symptoms.",
-  "1. His dad once took him to a small get together with the other parrots. Henry saw many of his friends there and there was a lot of noise at that party. How do you think Henry would’ve felt? Choose an option!",
+  "His dad once took him to a small get together with the other parrots. Henry saw many of his friends there and there was a lot of noise at that party.",
+  "How do you think Henry would’ve felt? Choose an option!",
 ];
 
 const String story1Question1Correct =
@@ -19,7 +20,8 @@ const List<String> story1Options1 = [
 ];
 
 const List<String> story1Question2 = [
-  "2. Here’s another instance. Henry attended Parrots elementary school the next day and his teacher Miss Crakow asked the class as to which is the tallest mountain in world. Henry knows the answer to this. How would have Henry reacted to this?",
+  "Here’s another instance. Henry attended Parrots elementary school the next day and his teacher Miss Crakow asked the class as to which is the tallest mountain in world. ",
+  "Henry knows the answer to this. How would have Henry reacted to this?",
 ];
 
 const String story1Question2Correct =

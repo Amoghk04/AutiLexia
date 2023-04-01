@@ -72,14 +72,13 @@ class FirstStoryLine extends HookWidget {
             fontFamily: 'LuckiestGuy',
             fontSize: 20,
           )),
-      const SizedBox(height: 50),
-      const CircleAvatar(
-          backgroundImage: AssetImage("lib/images/Pheonix.png"), radius: 60),
       const SizedBox(height: 10),
+      const CircleAvatar(
+          backgroundImage: AssetImage("lib/images/Pheonix.png"), radius: 50),
+      const SizedBox(height: 5),
       (displayQuestion.value)
           ? Container(
               width: MediaQuery.of(context).size.width - 20,
-              height: MediaQuery.of(context).size.height / 6,
               decoration: BoxDecoration(
                   color: Colors.lightBlue[50],
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
@@ -100,11 +99,9 @@ class FirstStoryLine extends HookWidget {
       const SizedBox(height: 10),
       (displayOptions.value)
           ? Column(children: [
-<<<<<<< HEAD
               (displayReply.value)
                   ? Container(
                       width: MediaQuery.of(context).size.width - 20,
-                      height: MediaQuery.of(context).size.height / 7,
                       decoration: BoxDecoration(
                           color: Colors.lightBlue[50],
                           borderRadius:
@@ -122,27 +119,13 @@ class FirstStoryLine extends HookWidget {
                                 replyFromIndex(1, selectedOption.value,
                                     correctOption.value, questionIndex.value))
                           ],
-                          displayFullTextOnTap: true,
                           repeatForever: false,
-                          stopPauseOnTap: true,
                           totalRepeatCount: 1,
                           onFinished: () {
                             submitted.value = true;
                           }),
                     )
                   : const SizedBox(height: 0, width: 0),
-=======
-              Container(
-                  width: MediaQuery.of(context).size.width - 20,
-                  height: MediaQuery.of(context).size.height / 6,
-                  decoration: BoxDecoration(
-                      color: Colors.lightBlue[50],
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(10))),
-                  child: const Text("Options",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 17))),
->>>>>>> a46553831a9e9caf5c758a31ad457ee45676602b
               const SizedBox(height: 10),
               Column(children: [
                 ListBody(children: options),
@@ -169,10 +152,12 @@ class FirstStoryLine extends HookWidget {
                     ? ElevatedButton(
                         onPressed: () {
                           // TODO: vaildate option
-                          correctOption.value =
-                              4; // TODO: replace line with correct option validation from database.
-                          displayReply.value = true;
-                          displayQuestion.value = false;
+                          if (selectedOption.value != -1) {
+                            correctOption.value =
+                                4; // TODO: replace line with correct option validation from database.
+                            displayReply.value = true;
+                            displayQuestion.value = false;
+                          }
                         },
                         child: const Text("Submit",
                             style:
