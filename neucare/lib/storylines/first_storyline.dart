@@ -38,10 +38,8 @@ class FirstStoryLine extends HookWidget {
             fontSize: 20,
           )),
       const SizedBox(height: 50),
-      Image.asset(
-        'lib/images/Pheonix.png',
-        height: 100,
-      ),
+      const CircleAvatar(
+          backgroundImage: AssetImage("lib/images/Pheonix.png"), radius: 60),
       const SizedBox(height: 10),
       const Text(
         "Name of the pet",
@@ -55,7 +53,7 @@ class FirstStoryLine extends HookWidget {
       (startStory.value)
           ? Container(
               width: MediaQuery.of(context).size.width - 20,
-              height: MediaQuery.of(context).size.height / 7,
+              height: MediaQuery.of(context).size.height / 6,
               decoration: BoxDecoration(
                   color: Colors.lightBlue[50],
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
@@ -77,7 +75,7 @@ class FirstStoryLine extends HookWidget {
           ? Column(children: [
               Container(
                   width: MediaQuery.of(context).size.width - 20,
-                  height: MediaQuery.of(context).size.height / 7,
+                  height: MediaQuery.of(context).size.height / 6,
                   decoration: BoxDecoration(
                       color: Colors.lightBlue[50],
                       borderRadius:
@@ -102,13 +100,13 @@ class FirstStoryLine extends HookWidget {
           ? Column(children: [
               Container(
                   width: MediaQuery.of(context).size.width - 20,
-                  height: MediaQuery.of(context).size.height / 5,
+                  height: MediaQuery.of(context).size.height / 4,
                   decoration: BoxDecoration(
                       color: Colors.lightBlue[50],
                       borderRadius:
                           const BorderRadius.all(Radius.circular(10))),
                   child: const Text(
-                      "\nThis is the story about Henry, a parrot in the pet world, diagnosed with autism and the hardships as well as the positives it experienced throughout its life.",
+                      "\nThis is the story about Henry, a parrot in the pet world, diagnosed with autism and the hardships as well as the positives it experienced throughout its life.  We learn how people with autism are affected from this story.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: "Raleway",
