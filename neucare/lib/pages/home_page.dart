@@ -58,11 +58,11 @@ class HomePage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 10),
                                 Text("Henry: The Autistic Parrot",
-                                style: TextStyle(
-                                  fontFamily: 'AmaticSC',
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 20,
-                                )),
+                                    style: TextStyle(
+                                      fontFamily: 'AmaticSC',
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 20,
+                                    )),
                               ])),
                           GestureDetector(
                               onTap: () {
@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                                   foregroundColor: Colors.transparent,
                                 ),
                                 SizedBox(height: 10),
-                                Text("Second story title",
+                                Text("Claudio: The Dyslexic Turtle",
                                     style: TextStyle(
                                       fontFamily: 'AmaticSC',
                                       fontWeight: FontWeight.w900,
