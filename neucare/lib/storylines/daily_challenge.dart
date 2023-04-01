@@ -35,9 +35,19 @@ class DailyChallenge extends HookWidget {
                         ),
                         (!challengeCompleted.value)
                             ? const Text(
-                                "\n\nStay tuned for the daily challenges🕰🕰.")
+                                "\n\nStay tuned for the daily challenges🕰🕰.",
+                                style: TextStyle(
+                                  fontFamily: "AmaticSC",
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 26,
+                                ))
                             : const Text(
-                                "\n\nDaily Challenge completed! Come back tomorrow!")
+                                "\n\nDaily Challenge completed! Come back tomorrow!",
+                                style: TextStyle(
+                                  fontFamily: "AmaticSC",
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 26,
+                                ))
                       ]),
                     ),
                     childCount: 1,

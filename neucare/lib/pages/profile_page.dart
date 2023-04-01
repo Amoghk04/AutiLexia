@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Container(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
                   Container(
@@ -30,6 +30,15 @@ class ProfilePage extends StatelessWidget {
                     child:
                         customAppBar(Colors.lightBlue[50], Colors.black, user),
                   ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    "User Profile",
+                    style: TextStyle(
+                      fontFamily: 'LuckiestGuy',
+                      fontSize: 30,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   SizedBox(
                     width: 120,
                     height: 120,
@@ -39,16 +48,17 @@ class ProfilePage extends StatelessWidget {
                   Text('${user?.email}',
                       style: Theme.of(context).textTheme.headlineSmall),
                   const SizedBox(height: 40),
+                  const Divider(color: Colors.transparent),
                   CarouselWithDots(imgList: imgList),
                   const SizedBox(height: 20),
                   const Text(
-                    'Pet Name',
+                    'Our different Pets',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 26,
+                      fontSize: 20,
+                      fontFamily: 'LuckiestGuy',
                     ),
                   ),
-                  const Divider(),
+                  const Divider(color: Colors.transparent),
                 ],
               ),
             ),
