@@ -152,12 +152,12 @@ class SecondStoryLine extends HookWidget {
                 (!submitted.value)
                     ? ElevatedButton(
                         onPressed: () {
-                          // TODO: vaildate option
                           if (selectedOption.value != -1) {
                             correctOption.value =
                                 4; // TODO: replace line with correct option validation from database.
                             displayReply.value = true;
                             displayQuestion.value = false;
+                            submitted.value = true;
                           }
                         },
                         child: const Text("Submit",
@@ -166,22 +166,25 @@ class SecondStoryLine extends HookWidget {
                     : ElevatedButton(
                         onPressed: () {
                           questionIndex.value++;
-                          // TODO: replace 2 down here with the total number of questions.
-                          if (questionIndex.value <= 2) {
+                          // TODO: replace this 4 below with the total number of questions.
+                          if (questionIndex.value <= 4) {
                             displayOptions.value = false;
                             selectedOption.value = -1;
                             correctOption.value = -1;
                             displayReply.value = false;
                             displayQuestion.value = true;
                             submitted.value = false;
+                          } else if (questionIndex.value == 5) {
+                            displayReply.value = false;
+                            displayQuestion.value = true;
                           } else {
                             Navigator.of(context).pop();
                           }
                         },
                         child: Text(
-                            (questionIndex.value + 1 <= 2)
+                            (questionIndex.value + 1 <= 5)
                                 ? "Next"
-                                : "Finish", // TODO: replace 2 here with the total number of questions.
+                                : "Finish", // TODO: replace this 5 with the total number of questions + 1.
                             style: const TextStyle(
                                 backgroundColor: Colors.transparent))),
               ]),

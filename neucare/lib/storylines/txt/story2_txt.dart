@@ -39,3 +39,31 @@ const List<String> story2Options2 = [
 const String story2Question2Correct = "";
 
 const String story2Question2Wrong = "";
+
+const List<String> story2Question3 = [
+  "",
+];
+
+const String story2Question3Correct = "";
+
+const String story2Question3Wrong = "";
+
+const List<String> story2Options3 = [
+  "",
+];
+
+const List<String> story2Question4 = [
+  "",
+];
+
+const String story2Question4Correct = "";
+
+const String story2Question4Wrong = "";
+
+const List<String> story2Options4 = [
+  "",
+];
+
+const List<String> story2Outro = [
+  "",
+];

@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:neucare/storylines/txt/story1_txt.dart';
 import 'package:neucare/storylines/txt/story2_txt.dart';
 
@@ -12,8 +11,14 @@ List<String> questionFromIndex(int story, int index) {
       case 2:
         question = story1Question2;
         break;
+      case 3:
+        question = story1Question3;
+        break;
+      case 4:
+        question = story1Question4;
+        break;
       default:
-        question = story1Question1;
+        question = story1Outro;
     }
   } else {
     switch (index) {
@@ -23,8 +28,14 @@ List<String> questionFromIndex(int story, int index) {
       case 2:
         question = story2Question2;
         break;
+      case 3:
+        question = story2Question3;
+        break;
+      case 4:
+        question = story2Question4;
+        break;
       default:
-        question = story2Question1;
+        question = story2Outro;
     }
   }
   return question;
@@ -40,6 +51,12 @@ List<String> optionsFromIndex(int story, int index) {
       case 2:
         options = story1Options2;
         break;
+      case 3:
+        options = story1Options3;
+        break;
+      case 4:
+        options = story1Options4;
+        break;
       default:
         options = story1Options1;
     }
@@ -50,6 +67,12 @@ List<String> optionsFromIndex(int story, int index) {
         break;
       case 2:
         options = story2Options2;
+        break;
+      case 3:
+        options = story2Options3;
+        break;
+      case 4:
+        options = story2Options4;
         break;
       default:
         options = story2Options1;
@@ -70,6 +93,12 @@ String replyFromIndex(
         case 2:
           reply = story1Question2Correct;
           break;
+        case 3:
+          reply = story1Question3Correct;
+          break;
+        case 4:
+          reply = story1Question4Correct;
+          break;
         default:
           reply = story1Question1Correct;
       }
@@ -80,6 +109,12 @@ String replyFromIndex(
           break;
         case 2:
           reply = story1Question2Wrong;
+          break;
+        case 3:
+          reply = story1Question3Wrong;
+          break;
+        case 4:
+          reply = story1Question4Wrong;
           break;
         default:
           reply = story1Question1Wrong;
@@ -94,6 +129,12 @@ String replyFromIndex(
         case 2:
           reply = story2Question2Correct;
           break;
+        case 3:
+          reply = story2Question3Correct;
+          break;
+        case 4:
+          reply = story2Question4Correct;
+          break;
         default:
           reply = story2Question2Correct;
       }
@@ -104,6 +145,12 @@ String replyFromIndex(
           break;
         case 2:
           reply = story2Question2Wrong;
+          break;
+        case 3:
+          reply = story2Question3Wrong;
+          break;
+        case 4:
+          reply = story2Question4Wrong;
           break;
         default:
           reply = story2Question1Wrong;
