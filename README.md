@@ -15,7 +15,8 @@
 # Sneaky Game Preview ;)
 ![Screenshot](https://user-images.githubusercontent.com/94102031/227729732-0f0bd0fc-0171-49df-a2ea-da05198fa51c.jpg)
 
-# Thanks!
+# Contributors
+- [Sathya Pramodh](https://github.com/sathya-pramodh)
 - [Amogh Kalasapura](https://github.com/Amoghk04)
 - [Abhay Bhandarkar](https://github.com/AbhayBhandarkar)
 - [Jaswanth T](https://github.com/Jashu2026)
