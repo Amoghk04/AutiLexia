@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:neucare/components/top_bar.dart';
+import 'package:spectramind/components/top_bar.dart';
 
 Widget customAppBar(
     Color? backgroundColor, Color? foregroundColor, User? user) {

@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:neucare/db.dart';
+import 'package:spectramind/db.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -33,4 +33,3 @@ class Auth {
     await _firebaseAuth.signOut();
   }
 }
-

@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:neucare/auth.dart';
-import 'package:neucare/components/app_drawer.dart';
+import 'package:spectramind/auth.dart';
+import 'package:spectramind/components/app_drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:neucare/components/app_bar.dart';
-import 'package:neucare/components/custom_container.dart';
-import 'package:neucare/storylines/daily_challenge.dart';
-import 'package:neucare/storylines/first_storyline.dart';
-import 'package:neucare/storylines/second_storyline.dart';
+import 'package:spectramind/components/app_bar.dart';
+import 'package:spectramind/components/custom_container.dart';
+import 'package:spectramind/storylines/daily_challenge.dart';
+import 'package:spectramind/storylines/first_storyline.dart';
+import 'package:spectramind/storylines/second_storyline.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
-import 'package:neucare/auth.dart';
-import 'package:neucare/pages/profile_page.dart';
-import 'package:neucare/pages/help_page.dart';
+import 'package:spectramind/auth.dart';
+import 'package:spectramind/pages/profile_page.dart';
+import 'package:spectramind/pages/help_page.dart';
 
 class AppDrawer extends StatelessWidget {
   final User? user = Auth().currentUser;
@@ -23,7 +23,7 @@ class AppDrawer extends StatelessWidget {
             "lib/images/logo.png",
             alignment: Alignment.center,
           ),
-          Text("Neucare", style: Theme.of(context).textTheme.titleLarge)
+          Text("Spectramind", style: Theme.of(context).textTheme.titleLarge)
         ]),
         children: [
           MLMenuItem(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:neucare/auth.dart';
+import 'package:spectramind/auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
     return const Text(
         style: TextStyle(
             fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black54),
-        'Neucare');
+        'Spectramind');
   }
 
   Widget _entryField(

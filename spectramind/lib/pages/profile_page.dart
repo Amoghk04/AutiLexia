@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:neucare/components/app_bar.dart';
-import 'package:neucare/components/custom_container.dart';
-import 'package:neucare/components/pet_slider.dart';
+import 'package:spectramind/components/app_bar.dart';
+import 'package:spectramind/components/custom_container.dart';
+import 'package:spectramind/components/pet_slider.dart';
 
 final List<String> imgList = [
   'lib/images/Unicorndalle.png',

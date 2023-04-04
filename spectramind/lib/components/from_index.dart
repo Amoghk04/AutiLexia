@@ -1,5 +1,5 @@
-import 'package:neucare/storylines/txt/story1_txt.dart';
-import 'package:neucare/storylines/txt/story2_txt.dart';
+import 'package:spectramind/storylines/txt/story1_txt.dart';
+import 'package:spectramind/storylines/txt/story2_txt.dart';
 
 List<String> questionFromIndex(int story, int index) {
   List<String> question;

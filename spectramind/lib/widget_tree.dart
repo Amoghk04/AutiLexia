@@ -1,6 +1,6 @@
-import 'package:neucare/auth.dart';
-import 'package:neucare/pages/home_page.dart';
-import 'package:neucare/pages/login_register_page.dart';
+import 'package:spectramind/auth.dart';
+import 'package:spectramind/pages/home_page.dart';
+import 'package:spectramind/pages/login_register_page.dart';
 import 'package:flutter/material.dart';
 
 class WidgetTree extends StatefulWidget {

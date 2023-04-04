@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:neucare/components/app_bar.dart';
-import 'package:neucare/components/custom_container.dart';
+import 'package:spectramind/components/app_bar.dart';
+import 'package:spectramind/components/custom_container.dart';
 
 Widget baseWidget(BuildContext context, String title, String backgroundImgPath,
     Widget body, User? user) {
