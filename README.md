@@ -18,4 +18,3 @@
 # Thanks!
 - [Amogh Kalasapura](https://github.com/Amoghk04)
 - [Abhay Bhandarkar](https://github.com/AbhayBhandarkar)
-- [Gagan P](https://github.com/Gaganp123)
