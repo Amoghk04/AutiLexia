@@ -1,4 +1,5 @@
 import Logo from '../assets/logo.png'
+import { motion } from "framer-motion";
 import '../css/About.css'
 
 const About = () => {
