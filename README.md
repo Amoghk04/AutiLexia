@@ -1,6 +1,5 @@
-# Geeksforgeekshack 
+# Spectramind
 - A Healthcare game for people suffering from Dyslexia and Autism.
-- Still debating on the name for the app.
 - ***App is still under development.***
 
 # Build Tools
