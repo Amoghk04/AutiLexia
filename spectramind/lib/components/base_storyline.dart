@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:spectramind/components/app_bar.dart';
 import 'package:spectramind/components/custom_container.dart';
 
-Widget baseWidget(BuildContext context, String title, String backgroundImgPath,
-    Widget body, User? user) {
+Widget baseWidget(BuildContext context, String title, Widget body, User? user) {
   return customContainer(
     Scaffold(
         backgroundColor: Colors.transparent,
@@ -23,6 +22,5 @@ Widget baseWidget(BuildContext context, String title, String backgroundImgPath,
                 child: body,
               ),
             ]))),
-    backgroundImgPath: backgroundImgPath,
   );
 }

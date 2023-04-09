@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:spectramind/components/base_storyline.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:spectramind/components/from_index.dart';
+import 'package:spectramind/db.dart';
 
 class SecondStoryLine extends HookWidget {
   final User? user;
@@ -22,7 +24,7 @@ class SecondStoryLine extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return baseWidget(context, "Second Story Line", "", _body(context), user);
+    return baseWidget(context, "Second Story Line", _body(context), user);
   }
 
   Widget _body(BuildContext context) {
@@ -153,11 +155,31 @@ class SecondStoryLine extends HookWidget {
                     ? ElevatedButton(
                         onPressed: () {
                           if (selectedOption.value != -1) {
-                            correctOption.value =
-                                4; // TODO: replace line with correct option validation from database.
-                            displayReply.value = true;
-                            displayQuestion.value = false;
-                            submitted.value = true;
+                            FirebaseFirestore.instance
+                                .collection('questions')
+                                .where('qid',
+                                    isEqualTo:
+                                        int.parse("2${questionIndex.value}"))
+                                .get()
+                                .then((value) {
+                              correctOption.value = value.docs[0].get("answer");
+                              int inc = 1;
+                              if (correctOption.value == selectedOption.value) {
+                                inc = 5;
+                              }
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .where('name', isEqualTo: user?.email)
+                                  .get()
+                                  .then((value) async => await DatabaseManager()
+                                      .updateUserTokens(
+                                          email: user?.email,
+                                          tokens: value.docs[0].get('tokens') +
+                                              inc));
+                              displayReply.value = true;
+                              displayQuestion.value = false;
+                              submitted.value = true;
+                            });
                           }
                         },
                         child: const Text("Submit",
@@ -166,7 +188,6 @@ class SecondStoryLine extends HookWidget {
                     : ElevatedButton(
                         onPressed: () {
                           questionIndex.value++;
-                          // TODO: replace this 4 below with the total number of questions.
                           if (questionIndex.value <= 4) {
                             displayOptions.value = false;
                             selectedOption.value = -1;
@@ -182,9 +203,7 @@ class SecondStoryLine extends HookWidget {
                           }
                         },
                         child: Text(
-                            (questionIndex.value + 1 <= 5)
-                                ? "Next"
-                                : "Finish", // TODO: replace this 5 with the total number of questions + 1.
+                            (questionIndex.value + 1 <= 5) ? "Next" : "Finish",
                             style: const TextStyle(
                                 backgroundColor: Colors.transparent))),
               ]),

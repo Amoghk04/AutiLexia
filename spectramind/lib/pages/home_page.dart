@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return customContainer(
-      backgroundImgPath: "",
       Scaffold(
           backgroundColor: Colors.transparent,
           drawer: AppDrawer(),

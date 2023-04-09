@@ -12,7 +12,6 @@ class HelpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return customContainer(
-      backgroundImgPath: "",
       Scaffold(
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(

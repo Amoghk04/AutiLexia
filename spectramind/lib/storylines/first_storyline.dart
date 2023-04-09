@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:spectramind/components/base_storyline.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:spectramind/components/from_index.dart';
+import 'package:spectramind/db.dart';
 
 class FirstStoryLine extends HookWidget {
   final User? user;
@@ -22,7 +24,7 @@ class FirstStoryLine extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return baseWidget(context, "First Story Line", "", _body(context), user);
+    return baseWidget(context, "First Story Line", _body(context), user);
   }
 
   Widget _body(BuildContext context) {
@@ -152,11 +154,31 @@ class FirstStoryLine extends HookWidget {
                     ? ElevatedButton(
                         onPressed: () {
                           if (selectedOption.value != -1) {
-                            correctOption.value =
-                                4; // TODO: replace line with correct option validation from database.
-                            displayReply.value = true;
-                            displayQuestion.value = false;
-                            submitted.value = true;
+                            FirebaseFirestore.instance
+                                .collection('questions')
+                                .where('qid',
+                                    isEqualTo:
+                                        int.parse("1${questionIndex.value}"))
+                                .get()
+                                .then((value) {
+                              correctOption.value = value.docs[0].get("answer");
+                              int inc = 1;
+                              if (correctOption.value == selectedOption.value) {
+                                inc = 5;
+                              }
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .where('name', isEqualTo: user?.email)
+                                  .get()
+                                  .then((value) async => await DatabaseManager()
+                                      .updateUserTokens(
+                                          email: user?.email,
+                                          tokens: value.docs[0].get('tokens') +
+                                              inc));
+                              displayReply.value = true;
+                              displayQuestion.value = false;
+                              submitted.value = true;
+                            });
                           }
                         },
                         child: const Text("Submit",
