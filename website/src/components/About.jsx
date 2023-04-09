@@ -26,13 +26,14 @@ const About = () => {
                 <h2 className="heading-black">Download from the Play Store and the App Store!</h2>
                 <a href="#">Play Store</a>
                 <a href="#">App Store</a>
+	    	<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                 <motion.div className="about__snapshots"  whileInView={{ x: [-100, -95, -90, -85, -80, -75, -70, -65, -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10, -5, 0], opacity: [0, 0.2, 0.4, 0.6, 0.8, 1] }}>
                 <h1>Some snapshots of the current app</h1>
-                <img className="" src={App1} alt="Home Page" hspace="15" width="200" height="350"></img>
+                <img className="" src={App1} alt="Home Page" hspace="200" vspace="50" width="250" height="460"></img>
 	    	<t></t>
-	    	<img className="" src={App2} alt="Profile Page" hspace="15" width="190" height="350"></img>
-		<br></br><br></br><img className="" src={App3} alt="Game Page" hspace="15" width="200" height="350"></img><t></t>
-	    	<img className="" src={App4} alt="Game Play" hspace="15" width="200" height="350"></img>
+	    	<img className="" src={App2} alt="Profile Page" hspace="200" vspace="50" width="250" height="460"></img>
+		<img className="" src={App3} alt="Game Page" hspace="200" vspace="50"width="250" height="460"></img><t></t>
+	    	<img className="" src={App4} alt="Game Play" hspace="200" vspace="50" width="250" height="460"></img>
                 </motion.div>
             </div>
         </>
