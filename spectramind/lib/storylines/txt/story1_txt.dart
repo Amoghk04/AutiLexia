@@ -16,7 +16,7 @@ const List<String> story1Options1 = [
   "1. He enjoys with his friends happily.",
   "2. He fights with them.",
   "3. He sings for the crowd.",
-  "4. He flies from the scene and hides behind an oak tree panting.(correct)",
+  "4. He flies from the scene and hides behind an oak tree panting.",
 ];
 
 const List<String> story1Question2 = [
