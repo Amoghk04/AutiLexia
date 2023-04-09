@@ -10,7 +10,7 @@ const Features = () => {
                 <div className="features__card-container">
                     <motion.div className="features__card" whileInView={{ opacity: [0, 0.2, 0.4, 0.6, 0.8, 1] }}>
                         <ul>
-                            <li className="features__card-li body-light-black">2 new Exciting storylines!!!</li>
+                            <li className="features__card-li body-light-black">Two new Exciting storylines!!!</li>
                             <li className="features__card-li body-light-black">Multiple Pets like Uni and Phoenix to choose from!!!</li>
                             <li className="features__card-li body-light-black">Interactive Storylines to engage with!!</li>
                         </ul>

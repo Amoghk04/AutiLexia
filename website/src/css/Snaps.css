@@ -1,0 +1,13 @@
+.snaps__title{
+    font-size: 255%;
+    color: #3e5066;
+}
+
+.snaps__container {
+    padding-top: 40%;
+    text-align: center;
+}
+
+.snaps__table{
+    padding-left: 10rem;
+}
