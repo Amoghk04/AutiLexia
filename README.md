@@ -1,6 +1,6 @@
 # Spectramind
 - A Healthcare game for people suffering from Dyslexia and Autism.
-- ***App is still under development.***
+- The App is completely developed :)
 
 # Build Tools
 - Some build tools we used...
@@ -11,9 +11,6 @@
 - The app was built using **Flutter** for the frontend and **Firebase (including Cloud Firestore)** for the backend.
 - The app is still under development.
 - Mainly aimed at **Android** devices.
-
-# Sneaky Game Preview ;)
-![Screenshot](https://user-images.githubusercontent.com/94102031/227729732-0f0bd0fc-0171-49df-a2ea-da05198fa51c.jpg)
 
 # Contributors
 - [Sathya Pramodh](https://github.com/sathya-pramodh)
