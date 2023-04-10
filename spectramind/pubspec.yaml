@@ -91,6 +91,13 @@ flutter:
     - family: Raleway
       fonts:
         - asset: fonts/raleway_font/Raleway-Black.ttf
+    - family: Hind
+      fonts:
+        - asset: fonts/Hind/Hind-Bold.ttf
+        - asset: fonts/Hind/Hind-Light.ttf
+        - asset: fonts/Hind/Hind-Medium.ttf
+        - asset: fonts/Hind/Hind-Regular.ttf
+        - asset: fonts/Hind/Hind-SemiBold.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

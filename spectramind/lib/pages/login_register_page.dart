@@ -49,9 +49,13 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _welcome() {
     return const Text(
-        style: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black54),
-        'Spectramind');
+      style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 30.0,
+          color: Colors.black54,
+          fontFamily: 'Hind'),
+      'Spectramind',
+    );
   }
 
   Widget _entryField(

@@ -45,9 +45,9 @@ class SecondStoryLine extends HookWidget {
               speed: const Duration(milliseconds: 50),
               textAlign: TextAlign.center,
               textStyle: const TextStyle(
-                  fontSize: 23,
-                  fontFamily: 'AmaticSC',
-                  fontWeight: FontWeight.w900),
+                  fontSize: 20,
+                  fontFamily: 'Hind',
+                  fontWeight: FontWeight.w400),
             ))
         .toList();
     List<ListTile> options = [];
@@ -62,8 +62,8 @@ class SecondStoryLine extends HookWidget {
               parsableOptions[i - 1],
               style: const TextStyle(
                   fontSize: 20,
-                  fontFamily: 'AmaticSC',
-                  fontWeight: FontWeight.w900),
+                  fontFamily: 'Hind',
+                  fontWeight: FontWeight.w400),
             ),
             const Divider(),
           ])));
@@ -116,9 +116,9 @@ class SecondStoryLine extends HookWidget {
                                 speed: const Duration(milliseconds: 50),
                                 textAlign: TextAlign.center,
                                 textStyle: const TextStyle(
-                                    fontSize: 23,
-                                    fontFamily: 'AmaticSC',
-                                    fontWeight: FontWeight.w900),
+                                    fontSize: 20,
+                                    fontFamily: 'Hind',
+                                    fontWeight: FontWeight.w400),
                                 replyFromIndex(2, selectedOption.value,
                                     correctOption.value, questionIndex.value))
                           ],

@@ -122,7 +122,7 @@ class HelpPage extends StatelessWidget {
                         ])),
                     const SizedBox(height: 20),
                     const Text(
-                        'If you have any more doubts or want to give us any feedback you can get back to us at by sending a query at our official website',
+                        'If you have any more doubts or want to give us any feedback you can get back to us by sending a query at our official website http://spectramind.netlify.app',
                         style: TextStyle(
                           fontSize: 12,
                           fontStyle: FontStyle.italic,
