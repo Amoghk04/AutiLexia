@@ -1,5 +1,4 @@
 .about__container {
-    justify-content: space-around;
     text-align: center;
 }
 
@@ -30,8 +29,21 @@
     list-style-type: none;
 }
 
+.github-link__anchor{
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.github-link__anchor:hover{
+    color: #5E81AC;
+}
+
 .heading-black {
     color: #2E3440;
+}
+
+.heading-white{
+    color: #ECEFF4;
 }
 
 .body-light-black {

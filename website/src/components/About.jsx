@@ -5,6 +5,7 @@ import '../css/About.css'
 const About = () => {
     return (
         <>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
             <div className="about__container">
                 <h1 className="about__title">Spectramind</h1>
                 <p className="about__tagline body-light-black">...one step at a time, you got this!</p>
@@ -19,9 +20,11 @@ const About = () => {
                         </ul>
                     </div>
                 </motion.div>
-                <h2 className="heading-black">Download from the Play Store and the App Store!</h2>
-                <a href="#">Play Store</a>
-                <a href="#">App Store</a>
+                <h2 className="heading-black">Download from Github!</h2>
+                <a className="heading-black github-link__anchor" href="https://github.com/sathya-pramodh/Spectramind/releases/latest">
+                    <i className="fa fa-github"></i>
+                    Github
+                </a>
             </div>
         </>
     )
