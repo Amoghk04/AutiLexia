@@ -40,7 +40,7 @@ class HelpPage extends StatelessWidget {
                           Divider(),
                           SizedBox(height: 15),
                           Text(
-                              "<App_Name> is an interactive story mode game, which is played through the life of a "
+                              "Spectramind is an interactive story mode game, which is played through the life of a "
                               "pet affected with a certain mental disorder, and the challenges face by it throughout its development years.",
                               textAlign: TextAlign.center,
                               style: TextStyle(

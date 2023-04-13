@@ -1,8 +1,8 @@
 const List<String> story2Question1 = [
   "Hi there, nice to meet you, I am Miss Unicorn and I'm a very close friend of Mr. Phoenix",
-  "I am going to tel you the story of Claudio the turtle",
+  "I am going to tell you the story of Claudio the turtle",
   "On the bank of the river Snockerdoodle, lived a turtle by the name Claudio. His parents were Mr. Mario and Mrs. Marinara",
-  "Claudio had a hear of gold and was a good and extroverted turtle but he was different from the others. He had difficulty in grasping things quickly which resulted in some trouble in his academics.",
+  "Claudio had a heart of gold and was a good and extroverted turtle but he was different from the others. He had difficulty in grasping things quickly which resulted in some trouble in his academics.",
   "His parents were worried that he was falling behind in his studies due to some kind of a problem and took him to a doctor",
   "The doctor diagnosed him with dyslexia, and advised him to focus a lot more on speaking, reading, writing and listening skills.",
   "Here are a few instances, through which the doctor was able to identify he had dyslexia, try to get the correct answer as to how Claudio would have reacted in these situations.",
