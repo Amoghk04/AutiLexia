@@ -5,7 +5,7 @@
 # Build Tools
 - Some build tools we used...
 ## Website
-- The website for this project was built using **React** using the **Vite** toolchain. Its temporarily hosted [here](https://spectramind.netlify.app). 
+- The website for this project was built using **React** using the **Vite** toolchain. Its hosted [here](http://34.131.64.5). 
 
 ## App
 - The app was built using **Flutter** for the frontend and **Firebase (including Cloud Firestore)** for the backend.
