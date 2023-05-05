@@ -38,6 +38,7 @@ dependencies:
   multilevel_drawer: ^2.0.0
   carousel_slider: ^4.2.1
   animated_text_kit: ^4.2.2
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:

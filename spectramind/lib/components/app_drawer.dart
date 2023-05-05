@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'package:spectramind/auth.dart';
+import 'package:spectramind/pages/mental_disorders.dart';
 import 'package:spectramind/pages/profile_page.dart';
 import 'package:spectramind/pages/help_page.dart';
 
@@ -47,6 +48,17 @@ class AppDrawer extends StatelessWidget {
               onClick: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => HelpPage(user: user)));
+              }),
+          MLMenuItem(
+              content: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset("lib/images/logo.png"),
+                    const Text("Mental Disorders"),
+                  ]),
+              onClick: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MentalDisorders(user: user)));
               }),
           MLMenuItem(
               content: Row(
