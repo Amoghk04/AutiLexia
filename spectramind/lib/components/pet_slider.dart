@@ -21,37 +21,37 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
               borderRadius: const BorderRadius.all(
                 Radius.circular(50.0),
               ),
-            child: Stack(
-            children: [
-              Image.asset(
-                item,
-                fit: BoxFit.fill,
-                width: 190,
-              ),
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color.fromARGB(200, 0, 0, 0),
-                        Color.fromARGB(0, 0, 0, 0),
-                      ],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    item,
+                    fit: BoxFit.fill,
+                    width: 190,
+                  ),
+                  Positioned(
+                    bottom: 0.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(200, 0, 0, 0),
+                            Color.fromARGB(0, 0, 0, 0),
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
                     ),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 10,
-                  ),
-                ),
+                ],
               ),
-            ],
-          ),
-          ),
+            ),
           ),
         )
         .toList();

@@ -33,10 +33,7 @@ class TopBar extends HookWidget {
           alignment: Alignment.bottomCenter,
         ),
         const Text(
-          textScaleFactor: 0.7,
-          style: TextStyle(color:Colors.black),
-          ": "
-        ),
+            textScaleFactor: 0.7, style: TextStyle(color: Colors.black), ": "),
         Stack(alignment: Alignment.centerLeft, children: [
           Container(
             padding:
@@ -63,7 +60,6 @@ class TopBar extends HookWidget {
                   return const Text("Loading...");
                 }),
           ),
-
         ]),
       ],
     );

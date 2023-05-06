@@ -17,44 +17,28 @@ class DailyChallenge extends HookWidget {
     }, []);
     return customContainer(
       Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SizedBox(
-            height: double.infinity,
-            width: double.infinity,
-            child: CustomScrollView(
-              slivers: <Widget>[
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) => ListTile(
-                      title: Column(children: [
-                        Container(
-                          padding: const EdgeInsets.only(left: 5, right: 5),
-                          child: customAppBar(
-                              Colors.lightBlue[50], Colors.black, user),
-                        ),
-                        (!challengeCompleted.value)
-                            ? const Text(
-                                "\n\nStay tuned for the daily challenges🕰🕰.",
-                                style: TextStyle(
-                                  fontFamily: "AmaticSC",
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 26,
-                                ))
-                            : const Text(
-                                "\n\nDaily Challenge completed! Come back tomorrow!",
-                                style: TextStyle(
-                                  fontFamily: "AmaticSC",
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 26,
-                                ))
-                      ]),
-                    ),
-                    childCount: 1,
-                  ),
-                )
-              ],
+        backgroundColor: Colors.transparent,
+        body: SingleChildScrollView(
+          child: Column(children: [
+            Container(
+              padding: const EdgeInsets.only(left: 5, right: 5),
+              child: customAppBar(Colors.lightBlue[50], Colors.black, user),
             ),
-          )),
+            (!challengeCompleted.value)
+                ? const Text("\n\nStay tuned for the daily challenges🕰🕰.",
+                    style: TextStyle(
+                      fontFamily: "LuckiestGuy",
+                      fontSize: 20,
+                    ))
+                : const Text(
+                    "\n\nDaily Challenge completed! Come back tomorrow!",
+                    style: TextStyle(
+                      fontFamily: "LuckiestGuy",
+                      fontSize: 20,
+                    ))
+          ]),
+        ),
+      ),
     );
   }
 }

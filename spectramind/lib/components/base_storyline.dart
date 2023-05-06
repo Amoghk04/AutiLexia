@@ -7,20 +7,18 @@ Widget baseWidget(BuildContext context, String title, Widget body, User? user) {
   return customContainer(
     Scaffold(
         backgroundColor: Colors.transparent,
-        body: SizedBox(
-            height: double.infinity,
-            width: double.infinity,
+        body: SingleChildScrollView(
             child: Column(children: [
-              Container(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: customAppBar(Colors.lightBlue[50], Colors.black, user),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.width / 8,
-                    bottom: MediaQuery.of(context).size.width / 8),
-                child: body,
-              ),
-            ]))),
+          Container(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: customAppBar(Colors.lightBlue[50], Colors.black, user),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.width / 8,
+                bottom: MediaQuery.of(context).size.width / 8),
+            child: body,
+          ),
+        ]))),
   );
 }

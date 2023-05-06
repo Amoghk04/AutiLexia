@@ -19,9 +19,7 @@ class HomePage extends StatelessWidget {
       Scaffold(
           backgroundColor: Colors.transparent,
           drawer: AppDrawer(),
-          body: SizedBox(
-            height: double.infinity,
-            width: double.infinity,
+          body: SingleChildScrollView(
             child: Column(children: [
               Container(
                   padding: const EdgeInsets.only(left: 10, right: 10),
