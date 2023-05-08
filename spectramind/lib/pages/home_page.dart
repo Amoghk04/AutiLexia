@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:spectramind/auth.dart';
 import 'package:spectramind/components/app_drawer.dart';
@@ -159,16 +160,31 @@ class HomePage extends StatelessWidget {
                       color: Colors.lightBlue[50],
                       borderRadius:
                           const BorderRadius.all(Radius.circular(15))),
-                  child: Column(children: const [
-                    Text("Reminder",
+                  child: Column(children: [
+                    const Text("Reminder",
                         style: TextStyle(
                             color: Colors.black54,
                             fontSize: 25,
                             fontWeight: FontWeight.bold)),
-                    Divider(),
-                    SizedBox(height: 40),
-                    Text("You have 2 modules left for the day!!",
-                        style: TextStyle(color: Colors.black45, fontSize: 20)),
+                    const Divider(),
+                    const SizedBox(height: 40),
+                    StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('users')
+                            .where('name', isEqualTo: user?.email)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            if (snapshot.data != null) {
+                              return Text(
+                                  "You have ${2 - snapshot.data?.docs.first.get('completed')} modules left for the day!!",
+                                  style: const TextStyle(
+                                      color: Colors.black45, fontSize: 20));
+                            }
+                            return const Text("Loading...");
+                          }
+                          return const Text("Loading...");
+                        })
                   ]))
             ]),
           )),

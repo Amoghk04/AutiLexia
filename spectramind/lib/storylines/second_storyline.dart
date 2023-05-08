@@ -199,7 +199,22 @@ class SecondStoryLine extends HookWidget {
                             displayReply.value = false;
                             displayQuestion.value = true;
                           } else {
-                            Navigator.of(context).pop();
+                            FirebaseFirestore.instance
+                                .collection('users')
+                                .where('name', isEqualTo: user?.email)
+                                .get()
+                                .then((matches) {
+                              int completed = matches.docs[0].get('completed');
+                              if (completed < 2) {
+                                DatabaseManager()
+                                    .updateUserModules(
+                                        email: user?.email,
+                                        modules: completed + 1)
+                                    .then((_) {
+                                  Navigator.of(context).pop();
+                                });
+                              }
+                            });
                           }
                         },
                         child: Text(
