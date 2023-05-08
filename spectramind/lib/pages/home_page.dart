@@ -7,6 +7,7 @@ import 'package:spectramind/components/custom_container.dart';
 import 'package:spectramind/storylines/daily_challenge.dart';
 import 'package:spectramind/storylines/first_storyline.dart';
 import 'package:spectramind/storylines/second_storyline.dart';
+import 'package:spectramind/pages/shop_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -19,7 +20,9 @@ class HomePage extends StatelessWidget {
       Scaffold(
           backgroundColor: Colors.transparent,
           drawer: AppDrawer(),
-          body: SingleChildScrollView(
+          body: SizedBox(
+            height: double.infinity,
+            width: double.infinity,
             child: Column(children: [
               Container(
                   padding: const EdgeInsets.only(left: 10, right: 10),
@@ -27,15 +30,39 @@ class HomePage extends StatelessWidget {
                       customAppBar(Colors.lightBlue[50], Colors.black, user)),
               Padding(
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.width / 3,
+                      top: MediaQuery.of(context).size.width / 12,
                       bottom: MediaQuery.of(context).size.width / 6),
                   child: Column(children: [
-                    const Text("Welcome!",
-                        style: TextStyle(
-                          fontSize: 35,
-                          color: Colors.black87,
-                          fontFamily: 'LuckiestGuy',
-                        )),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Text("             Welcome!",
+                              style: TextStyle(
+                                fontSize: 35,
+                                color: Colors.black87,
+                                fontFamily: 'LuckiestGuy',
+                              )),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        ShopPage(user: user)));
+                              },
+                              child: Column(children: const [
+                                CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage("lib/images/shop.jpeg"),
+                                  radius: 15,
+                                  foregroundColor: Colors.transparent,
+                                ),
+                                SizedBox(height: 5),
+                                Text("Shop",
+                                    style: TextStyle(
+                                        fontFamily: 'Hind',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 10))
+                              ]))
+                        ]),
                     const SizedBox(height: 30),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -124,6 +151,7 @@ class HomePage extends StatelessWidget {
                       ],
                     )
                   ])),
+              const SizedBox(height: 20),
               Container(
                   height: MediaQuery.of(context).size.height / 6,
                   width: MediaQuery.of(context).size.width - 20,
