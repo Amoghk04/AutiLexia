@@ -175,13 +175,17 @@ class HomePage extends StatelessWidget {
                             .snapshots(),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
-                            if (snapshot.data != null) {
-                              return Text(
-                                  "You have ${2 - snapshot.data?.docs.first.get('completed')} modules left for the day!!",
-                                  style: const TextStyle(
+                            if (2 - snapshot.data?.docs.first.get('completed') <
+                                0) {
+                              return const Text(
+                                  "You have 0 modules left for the day!!",
+                                  style: TextStyle(
                                       color: Colors.black45, fontSize: 20));
                             }
-                            return const Text("Loading...");
+                            return Text(
+                                "You have ${2 - snapshot.data?.docs.first.get('completed')} modules left for the day!!",
+                                style: const TextStyle(
+                                    color: Colors.black45, fontSize: 20));
                           }
                           return const Text("Loading...");
                         })

@@ -8,9 +8,20 @@ class DatabaseManager {
       "name": email,
       "tokens": 0,
       "completed": 0,
+      "multiplier": 1,
       "last_login": currentDate,
       "last_challenge": ""
     });
+  }
+
+  Future<void> updateUserMultiplier(
+      {required String? email, required int multiplier}) async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    QuerySnapshot querySnap = await users.where("name", isEqualTo: email).get();
+    String uid = querySnap.docs[0].id;
+    DocumentReference userDoc =
+        FirebaseFirestore.instance.collection('users').doc(uid);
+    await userDoc.update({"multiplier": multiplier});
   }
 
   Future<void> updateUserLastLogin(
@@ -22,6 +33,7 @@ class DatabaseManager {
         FirebaseFirestore.instance.collection('users').doc(uid);
     await userDoc.update({"last_login": lastLogin});
     await userDoc.update({"completed": 0});
+    await userDoc.update({"multiplier": 1});
   }
 
   Future<void> updateUserTokens(

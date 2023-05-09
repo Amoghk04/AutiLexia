@@ -170,11 +170,14 @@ class FirstStoryLine extends HookWidget {
                                   .collection('users')
                                   .where('name', isEqualTo: user?.email)
                                   .get()
-                                  .then((value) async => await DatabaseManager()
-                                      .updateUserTokens(
-                                          email: user?.email,
-                                          tokens: value.docs[0].get('tokens') +
-                                              inc));
+                                  .then((value) async {
+                                int multiplier =
+                                    value.docs[0].get('multiplier');
+                                await DatabaseManager().updateUserTokens(
+                                    email: user?.email,
+                                    tokens: value.docs[0].get('tokens') +
+                                        inc * multiplier);
+                              });
                               displayReply.value = true;
                               displayQuestion.value = false;
                               submitted.value = true;
@@ -204,15 +207,40 @@ class FirstStoryLine extends HookWidget {
                                 .get()
                                 .then((matches) {
                               int completed = matches.docs[0].get('completed');
-                              if (completed < 2) {
-                                DatabaseManager()
-                                    .updateUserModules(
-                                        email: user?.email,
-                                        modules: completed + 1)
-                                    .then((_) {
+                              DatabaseManager()
+                                  .updateUserModules(
+                                      email: user?.email,
+                                      modules: completed + 1)
+                                  .then((_) {
+                                if (completed + 1 == 2) {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: const Text("Congratulations!"),
+                                          content: const SingleChildScrollView(
+                                              child: Text(
+                                                  "You have unlocked your token multiplier for the day!")),
+                                          actions: <Widget>[
+                                            ElevatedButton(
+                                                child: const Text("Ok"),
+                                                onPressed: () {
+                                                  DatabaseManager()
+                                                      .updateUserMultiplier(
+                                                          email: user?.email,
+                                                          multiplier: 2)
+                                                      .then((_) {
+                                                    Navigator.of(context).pop();
+                                                    Navigator.of(context).pop();
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      });
+                                } else {
                                   Navigator.of(context).pop();
-                                });
-                              }
+                                }
+                              });
                             });
                           }
                         },
