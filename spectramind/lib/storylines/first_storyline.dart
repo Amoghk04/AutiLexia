@@ -45,7 +45,7 @@ class FirstStoryLine extends HookWidget {
               speed: const Duration(milliseconds: 50),
               textAlign: TextAlign.center,
               textStyle: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   fontFamily: 'Hind',
                   fontWeight: FontWeight.w400),
             ))
@@ -61,7 +61,7 @@ class FirstStoryLine extends HookWidget {
             Text(
               parsableOptions[i - 1],
               style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   fontFamily: 'Hind',
                   fontWeight: FontWeight.w400),
             ),
@@ -115,7 +115,7 @@ class FirstStoryLine extends HookWidget {
                                 speed: const Duration(milliseconds: 50),
                                 textAlign: TextAlign.center,
                                 textStyle: const TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 20,
                                     fontFamily: 'Hind',
                                     fontWeight: FontWeight.w400),
                                 replyFromIndex(1, selectedOption.value,
