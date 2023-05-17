@@ -97,8 +97,7 @@ class FirstStoryLine extends HookWidget {
                 },
               ),
             )
-          : const SizedBox(height: 0, width: 0),
-      const SizedBox(height: 10),
+          : const SizedBox(height: 10),
       (displayOptions.value)
           ? Column(children: [
               (displayReply.value)
@@ -127,8 +126,7 @@ class FirstStoryLine extends HookWidget {
                             submitted.value = true;
                           }),
                     )
-                  : const SizedBox(height: 0, width: 0),
-              const SizedBox(height: 10),
+                  : const SizedBox(height: 10),
               Column(children: [
                 ListBody(children: options),
               ]),
