@@ -77,6 +77,12 @@ class _TextToSpeechState extends State<TextToSpeech> {
                     child: customAppBar(
                         Colors.lightBlue[50], Colors.black, widget.user),
                   ),
+                  const SizedBox(height: 15),
+                  const Text("Text-To-Speech",
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontFamily: 'Hind',
+                          fontWeight: FontWeight.w900)),
                   const SizedBox(height: 10),
                   Container(
                     decoration: BoxDecoration(

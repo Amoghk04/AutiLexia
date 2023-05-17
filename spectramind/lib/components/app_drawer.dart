@@ -65,7 +65,7 @@ class AppDrawer extends StatelessWidget {
               content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset("lib/images/logo.png"),
+                    Image.asset("lib/images/tts.png"),
                     const Text("Text-To-Speech"),
                   ]),
               onClick: () {
