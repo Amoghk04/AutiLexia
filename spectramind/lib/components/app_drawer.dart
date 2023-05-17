@@ -5,7 +5,7 @@ import 'package:spectramind/auth.dart';
 import 'package:spectramind/pages/mental_disorders.dart';
 import 'package:spectramind/pages/profile_page.dart';
 import 'package:spectramind/pages/help_page.dart';
-import 'package:spectramind/components/text_to_speech.dart';
+import 'package:spectramind/pages/speech_practice.dart';
 
 class AppDrawer extends StatelessWidget {
   final User? user = Auth().currentUser;
@@ -66,11 +66,11 @@ class AppDrawer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Image.asset("lib/images/tts.png"),
-                    const Text("Text-To-Speech"),
+                    const Text("Speech Practice"),
                   ]),
               onClick: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => new TextToSpeech(user: user)));
+                    builder: (context) => new SpeechPractice(user: user)));
               }),
           MLMenuItem(
               content: Row(

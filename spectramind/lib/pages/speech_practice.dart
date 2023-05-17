@@ -4,17 +4,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:spectramind/components/app_bar.dart';
 import 'package:spectramind/components/custom_container.dart';
 
-class TextToSpeech extends StatefulWidget {
+class SpeechPractice extends StatefulWidget {
   final User? user;
-  TextToSpeech({super.key, required this.user});
+  SpeechPractice({super.key, required this.user});
 
   @override
-  State<TextToSpeech> createState() => _TextToSpeechState();
+  State<SpeechPractice> createState() => _SpeechPracticeState();
 }
 
 enum TtsState { playing, stopped }
 
-class _TextToSpeechState extends State<TextToSpeech> {
+class _SpeechPracticeState extends State<SpeechPractice> {
   late FlutterTts _flutterTts;
   String? _tts;
   TtsState _ttsState = TtsState.stopped;
