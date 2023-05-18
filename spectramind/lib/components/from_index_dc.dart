@@ -9,6 +9,12 @@ String questionFromIndex(int index) {
     case 2:
       question = dailychallenge_question2;
       break;
+    case 3:
+      question = dailychallenge_question3;
+      break;
+    case 4:
+      question = dailychallenge_question4;
+      break;
     default:
       question = dailychallenge_question1;
   }
@@ -23,6 +29,12 @@ List<String> optionsFromIndex(int index) {
       break;
     case 2:
       options = dailychallenge_options2;
+      break;
+    case 3:
+      options = dailychallenge_options3;
+      break;
+    case 4:
+      options = dailychallenge_options4;
       break;
     default:
       options = dailychallenge_options1;
