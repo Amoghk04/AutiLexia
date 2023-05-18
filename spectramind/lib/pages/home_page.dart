@@ -142,7 +142,7 @@ class HomePage extends StatelessWidget {
                                 radius: 50,
                               ),
                               SizedBox(height: 10),
-                              Text("Daily Challenge(Coming Soon!!!)",
+                              Text("Daily Challenge",
                                   style: TextStyle(
                                     fontFamily: 'Hind',
                                     fontWeight: FontWeight.w700,

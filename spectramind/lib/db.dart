@@ -7,11 +7,22 @@ class DatabaseManager {
     await users.add({
       "name": email,
       "tokens": 0,
+      "completed_dc": -1,
       "completed": 0,
       "multiplier": 1,
       "last_login": currentDate,
       "last_challenge": ""
     });
+  }
+
+  Future<void> updateUserCompletedDc(
+      {required String? email, required int completedDc}) async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    QuerySnapshot querySnap = await users.where("name", isEqualTo: email).get();
+    String uid = querySnap.docs[0].id;
+    DocumentReference userDoc =
+        FirebaseFirestore.instance.collection('users').doc(uid);
+    await userDoc.update({"completed_dc": completedDc});
   }
 
   Future<void> updateUserMultiplier(
