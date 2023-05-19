@@ -9,7 +9,6 @@
 
 ## App
 - The app was built using **Flutter** for the frontend and **Firebase (including Cloud Firestore)** for the backend.
-- The app is still under development.
 - Mainly aimed at **Android** devices.
 
 # Contributors
