@@ -104,6 +104,11 @@ class DailyChallenge extends HookWidget {
                               .get()
                               .then((matches) {
                             answer.value = matches.docs[0].get('answer');
+                          });
+                        },
+                        child: const Text("Submit"))
+                    : ElevatedButton(
+                        onPressed: () async {
                             FirebaseFirestore.instance
                                 .collection('users')
                                 .where('name', isEqualTo: user?.email)
@@ -118,11 +123,6 @@ class DailyChallenge extends HookWidget {
                                   email: user?.email,
                                   tokens: userTokens + inc * mult);
                             });
-                          });
-                        },
-                        child: const Text("Submit"))
-                    : ElevatedButton(
-                        onPressed: () async {
                           await DatabaseManager().updateUserCompletedDc(
                               email: user?.email, completedDc: dayId);
                           await DatabaseManager().updateUserLastDailyChallenge(
