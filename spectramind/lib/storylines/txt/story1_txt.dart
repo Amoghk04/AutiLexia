@@ -1,8 +1,10 @@
 const List<String> story1Question1 = [
   "Hello! It’s great to see you here! I am phoenix, your storyteller!",
   "I love telling stories which teach people values which help in personal and holistical development HERE WE GO!!!",
-  "There was once a parrot named Henry. He has ASD(Autism Spectrum Disorder). His dad Jack and mom Carly did not know this as they didn’t see the symptoms.",
-  "His dad once took him to a small get together with the other parrots. Henry saw many of his friends there and there was a lot of noise at that party.",
+  "There was once a parrot named Henry. He has ASD(Autism Spectrum Disorder).",
+  "His dad Jack and mom Carly did not know this as they didn’t see the symptoms.",
+  "His dad once took him to a small get together with the other parrots.",
+  "Henry saw many of his friends there and there was a lot of noise at that party.",
   "How do you think Henry would’ve felt? Choose an option!",
 ];
 
@@ -20,7 +22,8 @@ const List<String> story1Options1 = [
 ];
 
 const List<String> story1Question2 = [
-  "Here’s another instance. Henry attended Parrots elementary school the next day and his teacher Miss Crakow asked the class as to which is the tallest mountain in world. ",
+  "Henry attended Parrots elementary school.",
+  "The next day his teacher Miss Crakow asked the class, 'What is the tallest mountain in world?'.",
   "Henry knows the answer to this. How would have Henry reacted to this?",
 ];
 
@@ -40,7 +43,8 @@ const List<String> story1Options2 = [
 
 const List<String> story1Question3 = [
   "Two done! 2 more to go! You’re doing great!",
-  "Here’s another instance. Henry is known to collect chillies to get through the winter. He needs to sort his chillies in the tree trunk. How do you think he will set it?"
+  "Here’s another instance. Henry is known to collect chillies to get through the winter. ",
+  "He needs to sort his chillies in the tree trunk. How do you think he will set it?"
 ];
 
 const String story1Question3Correct =
@@ -74,7 +78,8 @@ const List<String> story1Options4 = [
 ];
 
 const List<String> story1Outro = [
-  "With these symptoms, Henry’s parents get to know that he is autistic and even then love him so much. From this story we learn that autistic people have nothing to fear about and they’re amazing in their own ways.",
-  "The gifted surgeon Dr. Shaun Murphy from the series “The Good doctor” helps us to understand the challenges he overcomes and the absolute gem he is! Go watch it if you haven’t yet!",
-  "I hope you had a lot of fun learning about Henry and his life. Be strong! Be happy! I’ll meet you again in future. We love you!",
+  "With these symptoms, Henry’s parents get to know that he is autistic and even then love him so much. ",
+  "From this story we learn that autistic people have nothing to fear about and they’re amazing in their own ways.",
+  "The gifted surgeon Dr. Shaun Murphy from the series “The Good doctor” is an example of a person with ASD.",
+  "I hope you had a lot of fun learning about Henry and his life. I’ll meet you again in future. We love you!",
 ];

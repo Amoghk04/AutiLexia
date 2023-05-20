@@ -6,6 +6,7 @@ import 'package:spectramind/components/base_storyline.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:spectramind/components/from_index.dart';
 import 'package:spectramind/db.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class FirstStoryLine extends HookWidget {
   final User? user;
@@ -28,6 +29,7 @@ class FirstStoryLine extends HookWidget {
   }
 
   Widget _body(BuildContext context) {
+    late FlutterTts tts = FlutterTts();
     final displayOptions = useState(false);
     final startStory = useState(false);
     final displayText = useState("Start");
@@ -37,12 +39,14 @@ class FirstStoryLine extends HookWidget {
     final submitted = useState(false);
     final displayReply = useState(false);
     final displayQuestion = useState(false);
+    tts.setSpeechRate(0.6);
 
-    final text = questionFromIndex(1, questionIndex.value)
+    final parsableText = questionFromIndex(1, questionIndex.value);
+    final text = parsableText
         .map((paragraph) => TypewriterAnimatedText(
               paragraph,
               cursor: '',
-              speed: const Duration(milliseconds: 50),
+              speed: const Duration(milliseconds: 75),
               textAlign: TextAlign.center,
               textStyle: const TextStyle(
                   fontSize: 20,
@@ -86,14 +90,18 @@ class FirstStoryLine extends HookWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(10))),
               child: AnimatedTextKit(
                 animatedTexts: text,
-                displayFullTextOnTap: true,
                 repeatForever: false,
-                stopPauseOnTap: true,
-                pause: const Duration(seconds: 2),
+                pause: const Duration(seconds: 5),
                 totalRepeatCount: 1,
                 onFinished: () {
                   displayOptions.value = true;
                   displayText.value = "Restart";
+                },
+                onNextBeforePause: (idx, b) async {
+                  await tts.speak(parsableText[idx]);
+                },
+                onNext: (idx, b) async {
+                  await tts.awaitSpeakCompletion(true);
                 },
               ),
             )
@@ -111,7 +119,7 @@ class FirstStoryLine extends HookWidget {
                           animatedTexts: [
                             TypewriterAnimatedText(
                                 cursor: '',
-                                speed: const Duration(milliseconds: 50),
+                                speed: const Duration(milliseconds: 75),
                                 textAlign: TextAlign.center,
                                 textStyle: const TextStyle(
                                     fontSize: 20,
@@ -122,8 +130,19 @@ class FirstStoryLine extends HookWidget {
                           ],
                           repeatForever: false,
                           totalRepeatCount: 1,
+                          pause: const Duration(seconds: 5),
                           onFinished: () {
                             submitted.value = true;
+                          },
+                          onNextBeforePause: (idx, b) async {
+                            await tts.speak(replyFromIndex(
+                                1,
+                                selectedOption.value,
+                                correctOption.value,
+                                questionIndex.value));
+                          },
+                          onNext: (idx, b) async {
+                            await tts.awaitSpeakCompletion(true);
                           }),
                     )
                   : const SizedBox(height: 10),

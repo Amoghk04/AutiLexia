@@ -1,4 +1,5 @@
 import Logo from "../assets/logo.jpg"
+import GithubImg from "../assets/github.png"
 
 const HomePage = () => {
     return <>
@@ -69,8 +70,10 @@ const HomePage = () => {
 
         <section className="Product">
             <h1>Product</h1>
-            <p>Click <a href="/product">here</a> to download our product and get fully
+            <p>Click the icon below to download our product and get fully
                 benefitted by it.</p>
+                <a href="https://github.com/sathya-pramodh/Spectramind/releases/latest" style={{ display: "flex", alignItems: "center", justifyContent: "center", scale: "45%", marginBottom: -45 }}><img src={GithubImg} /></a>
+                <a href="https://github.com/sathya-pramodh/Spectramind/releases/latest" style={{ color: "black" }}><h2 style={{ textAlign: "center" }}>Github</h2></a>
         </section>
 
         <section className="cfb">

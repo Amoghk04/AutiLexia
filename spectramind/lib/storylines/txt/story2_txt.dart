@@ -2,11 +2,14 @@ const List<String> story2Question1 = [
   "Hi there, nice to meet you, I am Miss Unicorn and I'm a very close friend of Mr. Phoenix",
   "I am going to tell you the story of Claudio the turtle",
   "On the bank of the river Snockerdoodle, lived a turtle by the name Claudio. His parents were Mr. Mario and Mrs. Marinara",
-  "Claudio had a heart of gold and was a good and extroverted turtle but he was different from the others. He had difficulty in grasping things quickly which resulted in some trouble in his academics.",
+  "Claudio had a heart of gold and was a good and extroverted turtle but he was different from the others.",
+  "He had difficulty in grasping things quickly which resulted in some trouble in his academics.",
   "His parents were worried that he was falling behind in his studies due to some kind of a problem and took him to a doctor",
   "The doctor diagnosed him with dyslexia, and advised him to focus a lot more on speaking, reading, writing and listening skills.",
-  "Here are a few instances, through which the doctor was able to identify he had dyslexia, try to get the correct answer as to how Claudio would have reacted in these situations.",
-  "One day in school, Claudio's teacher Mrs. Suzie gave the students a dictation test, one of the words was 'ball', what do you think Claudio wrote its spelling as?",
+  "Here are a few instances, through which the doctor was able to identify he had dyslexia."
+  "Try to get the correct answer as to how Claudio would have reacted in these situations.",
+  "One day in school, Claudio's teacher Mrs. Suzie gave the students a dictation test, one of the words was 'ball'",
+  "What do you think Claudio wrote its spelling as?",
 ];
 
 const String story2Question1Correct =
@@ -60,7 +63,7 @@ const List<String> story2Options3 = [
 ];
 
 const List<String> story2Question4 = [
-  "It was exam time and the paper was super easy. Everyone finished the paper in an average of 30 min. How do you think Claudio likely did on the test?"
+  "It was exam time and the paper was super easy. Everyone finished the paper in an average of 30 min. How do you think Claudio likely did on the test?",
 ];
 
 const String story2Question4Correct =
@@ -77,8 +80,10 @@ const List<String> story2Options4 = [
 ];
 
 const List<String> story2Outro = [
-  "This is the story of what Claudio goes through at his school. Congratulations on helping Dr. Basu diagnose him very well and helping Claudio get the best treatment possible!",
+  "This is the story of what Claudio goes through at his school.",
+  "Congratulations on helping Dr. Basu diagnose him very well and helping Claudio get the best treatment possible!",
   "We need more people like you who understand other people and oneself helping everyone lead a fruitful life. ",
-  "People with dyslexia often show these symptoms of confusion, not being able to recollect, spelling problems, avoiding reading being clumsy and more. ",
-  "There is lots of help out there in this app and in the world for such people and don’t miss out!!! I will meet you again in the stories in the future! We love you!",
+  "Few symptoms of Dyslexia are not being able to recollect, spelling problems, avoiding reading being clumsy and more. ",
+  "There is lots of help out there in this app and in the world for such people and don’t miss out!!!",
+  " I will meet you again in the stories in the future! We love you!",
 ];
