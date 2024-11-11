@@ -10,9 +10,3 @@
 ## App
 - The app was built using **Flutter** for the frontend and **Firebase (including Cloud Firestore)** for the backend.
 - Mainly aimed at **Android** devices.
-
-# Contributors
-- [Sathya Pramodh](https://github.com/sathya-pramodh)
-- [Amogh Kalasapura](https://github.com/Amoghk04)
-- [Abhay Bhandarkar](https://github.com/AbhayBhandarkar)
-- [Jaswanth T](https://github.com/Jashu2026)
