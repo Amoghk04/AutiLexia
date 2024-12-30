@@ -30,38 +30,28 @@ class _SpeechPracticeState extends State<SpeechPractice> {
     _flutterTts.stop();
   }
 
-  initTts() async {
-    _flutterTts = FlutterTts();
-    await _flutterTts.awaitSpeakCompletion(true);
+  void initTts() {
+  _flutterTts = FlutterTts();
 
-    _flutterTts.setStartHandler(() {
-      setState(() {
-        print("Playing");
-        _ttsState = TtsState.playing;
-      });
+  _flutterTts.setStartHandler(() {
+    setState(() {
+      _ttsState = TtsState.playing;
     });
+  });
 
-    _flutterTts.setCompletionHandler(() {
-      setState(() {
-        print("Complete");
-        _ttsState = TtsState.stopped;
-      });
+  _flutterTts.setCompletionHandler(() {
+    setState(() {
+      _ttsState = TtsState.stopped;
     });
+  });
 
-    _flutterTts.setCancelHandler(() {
-      setState(() {
-        print("Cancel");
-        _ttsState = TtsState.stopped;
-      });
+  _flutterTts.setErrorHandler((message) {
+    setState(() {
+      _ttsState = TtsState.stopped;
     });
-
-    _flutterTts.setErrorHandler((message) {
-      setState(() {
-        print("Error: $message");
-        _ttsState = TtsState.stopped;
-      });
-    });
-  }
+    print("Error: $message");
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -114,16 +104,23 @@ class _SpeechPracticeState extends State<SpeechPractice> {
   }
 
   Future speak() async {
-    await _flutterTts.setVolume(1);
-    await _flutterTts.setSpeechRate(0.5);
-    await _flutterTts.setPitch(1);
-
-    if (_tts != null) {
-      if (_tts!.isNotEmpty) {
+    try {
+      print("Setting volume...");
+      await _flutterTts.setVolume(1);
+      print("Setting speech rate...");
+      await _flutterTts.setSpeechRate(0.5);
+      print("Setting pitch...");
+      await _flutterTts.setPitch(1);
+      print("Speaking...");
+      if (_tts != null && _tts!.isNotEmpty) {
         await _flutterTts.speak(_tts!);
       }
+    } catch (e) {
+      print("Error during TTS: $e");
     }
   }
+
+
 
   Future stop() async {
     var result = await _flutterTts.stop();

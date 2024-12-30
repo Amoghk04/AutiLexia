@@ -131,7 +131,7 @@ class MongoDBAuth {
 
   // Update user tokens
   Future<bool> updateUserTokens(String username, int tokens) async {
-    final url = Uri.parse('$baseUrl/user/update_tokens');
+    final url = Uri.parse('$baseUrl/user/updateTokens');
     try {
       final response = await http.put(
         url,

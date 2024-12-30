@@ -5,6 +5,7 @@ import 'package:spectramind/pages/mental_disorders.dart';
 import 'package:spectramind/pages/profile_page.dart';
 import 'package:spectramind/pages/help_page.dart';
 import 'package:spectramind/pages/speech_practice.dart';
+import 'package:spectramind/pages/login_register_page.dart';
 
 class AppDrawer extends StatelessWidget {
   final String? currentUser = MongoDBAuth.username; // Get the current user from MongoDBAuth
@@ -91,7 +92,11 @@ class AppDrawer extends StatelessWidget {
                     Image.asset("lib/images/sign_out.png"),
                     const Text("Sign Out"),
                   ]),
-              onClick: signOut),
+              onClick: () {
+                signOut();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => LoginPage()));
+              }),
           // Empty Menu Item (used for spacing)
           MLMenuItem(
               content: Row(

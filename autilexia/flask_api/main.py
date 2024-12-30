@@ -1,23 +1,18 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-import random
-import string
 
 app = Flask(__name__)
 
-password = "lRHs3hW6JsfA4jof"
-user = "dbproject1234567890"
-
 # MongoDB Atlas Connection
-client = MongoClient("mongodb+srv://dbproject1234567890:lRHs3hW6JsfA4jof@cluster0.mnx82.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")  # Replace with your Atlas connection string
-db = client["autilexia"]  # Replace with your database name
-user_collection = db["users"]  # Replace with your collection name
+client = MongoClient("mongodb+srv://dbproject1234567890:lRHs3hW6JsfA4jof@cluster0.mnx82.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+db = client["autilexia"]
+user_collection = db["users"]
 
-@app.route("/", methods=["POST", "GET"])
+@app.route("/", methods=["GET"])
 def main():
     try:
-        # Check if the database is accessible
         client.admin.command("ping")
         init = True
     except Exception as e:
@@ -25,100 +20,141 @@ def main():
         init = False
     return jsonify({"Initialized": init})
 
-@app.route("/login", methods=["POST"])
-def login():
-    # Extract username and password from the request
-    data = request.json
-    username = data.get("username")
-    password = data.get("password")
-
-    if not username or not password:
-        return jsonify({"error": "Username and password are required"}), 400
-
-    # Find user in the database
-    user = user_collection.find_one({"username": username})
-    if user and check_password_hash(user["password"], password):
-        return jsonify({"message": "Login successful", "error": None}), 200
-    else:
-        return jsonify({"Logged In": False, "error": "Invalid credentials"}), 401
-
 @app.route("/register", methods=["POST"])
 def register():
-    # Extract username and password from the request
     data = request.json
     username = data.get("username")
     password = data.get("password")
-
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
-
-    # Check if user already exists
     if user_collection.find_one({"username": username}):
         return jsonify({"error": "User already exists"}), 400
-
-    # Hash the password and create a random token
     hashed_password = generate_password_hash(password)
-    token = generate_random_token()
-
-    # Save the user with token field in the database
     user_collection.insert_one({
         "username": username,
         "password": hashed_password,
-        "token": token,
+        "tokens": 0,
+        "modules": [],
+        "multiplier": 1
     })
-    return jsonify({"message": "Registration successful", "error": None, "token": token}), 200
+    return jsonify({"message": "Registration successful"}), 200
 
-@app.route("/get_token", methods=["GET"])
-def get_token():
-    # Extract username from the request
-    username = request.args.get("username")
-    
-    if not username:
-        return jsonify({"error": "Username is required"}), 400
-
-    # Find user in the database
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.json
+    username = data.get("username")
+    password = data.get("password")
+    if not username or not password:
+        return jsonify({"error": "Username and password are required"}), 400
     user = user_collection.find_one({"username": username})
+    if user and check_password_hash(user["password"], password):
+        return jsonify({"message": "Login successful"}), 200
+    return jsonify({"error": "Invalid credentials"}), 401
+
+
+@app.route("/updateCompletedDc", methods=["PUT"])
+def update_completed_dc():
+    data = request.json
+    name = data.get("name")
+    completed_dc = data.get("completed_dc")
+    if not name or completed_dc is None:
+        return jsonify({"error": "Name and completed_dc are required"}), 400
     
-    if user:
-        return jsonify({"username": username, "token": user["token"]}), 200
-    else:
-        return jsonify({"error": "User not found"}), 404
-
-@app.route("/update_user", methods=["PUT"])
-def update_user():
-    data = request.json
-    username = data.get("username")
-    updates = data.get("updates")
-
-    if not username or not updates:
-        return jsonify({"error": "Username and updates are required"}), 400
-
-    result = user_collection.update_one({"username": username}, {"$set": updates})
-
+    result = user_collection.update_one({"name": name}, {"$set": {"completed_dc": completed_dc}})
     if result.matched_count > 0:
-        return jsonify({"message": "User updated successfully"}), 200
-    else:
-        return jsonify({"error": "User not found"}), 404
+        return jsonify({"message": "completed_dc updated successfully"}), 200
+    return jsonify({"error": "User not found"}), 404
 
-@app.route("/delete_user", methods=["DELETE"])
-def delete_user():
+@app.route("/updateMultiplier", methods=["PUT"])
+def update_multiplier():
     data = request.json
-    username = data.get("username")
+    name = data.get("name")
+    multiplier = data.get("multiplier")
+    if not name or multiplier is None:
+        return jsonify({"error": "Name and multiplier are required"}), 400
+    
+    result = user_collection.update_one({"name": name}, {"$set": {"multiplier": multiplier}})
+    if result.matched_count > 0:
+        return jsonify({"message": "Multiplier updated successfully"}), 200
+    return jsonify({"error": "User not found"}), 404
 
+@app.route("/updateLastLogin", methods=["PUT"])
+def update_last_login():
+    data = request.json
+    name = data.get("name")
+    last_login = data.get("last_login")
+    if not name or not last_login:
+        return jsonify({"error": "Name and last_login are required"}), 400
+    
+    result = user_collection.update_one(
+        {"name": name},
+        {"$set": {"last_login": last_login, "completed": 0, "multiplier": 1}}
+    )
+    if result.matched_count > 0:
+        return jsonify({"message": "Last login updated successfully"}), 200
+    return jsonify({"error": "User not found"}), 404
+
+@app.route("/updateTokens", methods=["PUT"])
+def update_tokens():
+    data = request.json
+    name = data.get("name")
+    tokens = data.get("tokens")
+    if not name or tokens is None:
+        return jsonify({"error": "Name and tokens are required"}), 400
+    
+    result = user_collection.update_one({"name": name}, {"$set": {"tokens": tokens}})
+    if result.matched_count > 0:
+        return jsonify({"message": "Tokens updated successfully"}), 200
+    return jsonify({"error": "User not found"}), 404
+
+@app.route("/updateLastDailyChallenge", methods=["PUT"])
+def update_last_daily_challenge():
+    data = request.json
+    name = data.get("name")
+    last_challenge = data.get("last_challenge")
+    if not name:
+        return jsonify({"error": "Name is required"}), 400
+    
+    result = user_collection.update_one({"name": name}, {"$set": {"last_challenge": last_challenge}})
+    if result.matched_count > 0:
+        return jsonify({"message": "Last daily challenge updated successfully"}), 200
+    return jsonify({"error": "User not found"}), 404
+
+@app.route("/updateCompletedModules", methods=["PUT"])
+def update_completed_modules():
+    data = request.json
+    name = data.get("name")
+    completed = data.get("completed")
+    if not name or completed is None:
+        return jsonify({"error": "Name and completed are required"}), 400
+    
+    result = user_collection.update_one({"name": name}, {"$set": {"completed": completed}})
+    if result.matched_count > 0:
+        return jsonify({"message": "Completed modules updated successfully"}), 200
+    return jsonify({"error": "User not found"}), 404
+
+@app.route("/user", methods=["GET"])
+def get_user():
+    name = request.args.get("name")
+    print(name)
+    if not name:
+        return jsonify({"error": "Name is required"}), 400
+
+    user = user_collection.find_one({"username": name}, {"_id": 0, "password": 0})
+    if user:
+        return jsonify(user), 200
+    return jsonify({"error": "User not found"}), 404
+
+@app.route("/getTokens", methods=["GET"])
+def get_tokens():
+    username = request.args.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    result = user_collection.delete_one({"username": username})
-
-    if result.deleted_count > 0:
-        return jsonify({"message": "User deleted successfully"}), 200
-    else:
-        return jsonify({"error": "User not found"}), 404
-
-# Function to generate a random token (could be replaced with a more secure method)
-def generate_random_token(length=32):
-    characters = string.ascii_letters + string.digits
-    return ''.join(random.choice(characters) for _ in range(length))
+    user = user_collection.find_one({"username": username}, {"_id": 0, "tokens": 1})
+    if user:
+        return jsonify({"tokens": user.get("tokens", 0)}), 200
+    return jsonify({"error": "User not found"}), 404
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(debug=True)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mongo_dart/mongo_dart.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class TopBar extends StatelessWidget {
   final String imagePath;
@@ -18,31 +19,31 @@ class TopBar extends StatelessWidget {
     );
   }
 
-  Future<int> _getUserTokens() async {
-    // Set up MongoDB connection
-    var db = await Db.create('mongodb://your_mongo_db_url_here');
-    await db.open();
+  Future<int> _getUserTokens(String username) async {
+  final url = Uri.parse('http://127.0.0.1:5000/getTokens?username=$username'); // Replace with your actual Flask API URL
+  
+  try {
+    final response = await http.get(url);
     
-    var collection = db.collection('users');
-    
-    // Find the document where 'name' equals the username
-    var user = await collection.findOne(where.eq('name', username));
-    
-    // Close the database connection
-    await db.close();
-    
-    if (user != null) {
-      // Assuming the field for tokens is named 'tokens'
-      return user['tokens'] ?? 0;
+    if (response.statusCode == 200) {
+      // Parse the JSON response
+      final data = json.decode(response.body);
+      return data['tokens'] ?? 0; // Assuming the response contains a field named 'tokens'
     } else {
-      return 0; // Default value if user is not found
+      // Handle non-200 responses
+      print('Failed to load tokens: ${response.statusCode}');
+      return 0; // Default value if the request fails
     }
+  } catch (e) {
+    print('Error fetching user tokens: $e');
+    return 0; // Return default value on error
   }
+}
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<int>(
-      future: _getUserTokens(),
+      future: _getUserTokens(username),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Row(
